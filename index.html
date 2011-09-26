@@ -1,39 +1,225 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Derek Eder - Searchable Map Template</title>
-	<link href='/styles/master.css' media='all' rel='stylesheet' type='text/css' />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	<script src="/source/analytics_lib.js" type="text/javascript"></script>
+<title>Enter your title here</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script src="/source/analytics_lib.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script src="source/jquery.ezpz_hint.min.js" type="text/javascript"></script>
+<link href='styles/map.css' media='all' rel='stylesheet' type='text/css' />
+
+<script type="text/javascript">
+  /* 
+  	Fusion Table Searchable Map Template by Derek Eder
+  	
+  	Follow the steps below and you'll be in business with your own map
+  	
+  	1. Create a Fusion Table (http://www.google.com/fusiontables/Home)
+  	2. Make sure at least one column is set to a type of Location and that FT has geocoded it
+  	3. Set the fusion table to be publicly visible (via the Share button in the upper right) 
+  	4. Replace the xxxxxx with the ID of your Fusion Table (there's one at the bottom too)
+  	5. Replace 'geometry' with the name of your location column
+  	6. *Optional* Add additional seach filters. This will depend on the data you are trying to map. 
+  	   I intentionally left these out to keep this example simple. You can see examples of these by 
+  	   viewing the source on any of these:
+  	   - http://derekeder.com/maps/chicago-abandoned-buildings/index.html
+  	   - http://derekeder.com/maps/chicago-bike-crash-reports/index.html
+  	   - http://derekeder.com/maps/chicago-tif/index.html
+  	7. Upload this map and all the supporting files (source and styles folders) to your site 
+  
+  */
+
+  var map;
+  var geocoder;
+  var addrMarker;
+  var addrMarkerImage = 'http://derekeder.com/images/icons/blue-pushpin.png';
+  
+  var fusionTableId = 303470; //enter your fusion table Id here - there's another one at the bottom too
+  var searchRadius = 805; //in meters ~ 1/2 mile
+  var searchRecords;
+  var records = new google.maps.FusionTablesLayer(fusionTableId);
+  var searchStr;
+  
+  google.load('visualization', '1', {}); //used for custom SQL call to get record count
+  
+  function initialize() {
+	$( "#resultCount" ).html("");
+  
+  	geocoder = new google.maps.Geocoder();
+    var chicago = new google.maps.LatLng(41.850033, -87.6500523); //where your map is centered on when it opens
+    var myOptions = {
+      zoom: 11, //zoom level (higher = more zoomed in)
+      center: chicago,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+	
+	document.getElementById("ddlRadius").value = "805"; //sets default radius
+	
+	searchRecords = null;
+	
+	records.setMap(map);
+	document.getElementById("txtSearchAddress").value = "";
+  }
+	
+	//this is the function that does the search
+	function doSearch() 
+	{
+		clearSearch();
+		var address = document.getElementById("txtSearchAddress").value;
+		
+		searchRadius = document.getElementById("ddlRadius").value;
+		
+		//this is where we start building our SQL query. We are doing a SELECT on the Fusion Tables column that contains the 
+		//geocoded location. Sometimes its an address, sometimes its a kml point, sometimes its a 2 column lat/long (in which
+		//case you select the longitue col
+		searchStr = "SELECT geometry FROM " + fusionTableId + " WHERE geometry not equal to ''";
+		
+		// because the geocode function does a callback, we have to handle it in both cases - when they search for and address and when they dont
+		if (address != "")
+		{
+			_trackClickEventWithGA("Search", "Map", address);
+			//geocoding the searched address
+			geocoder.geocode( { 'address': address}, function(results, status) 
+			{
+			  if (status == google.maps.GeocoderStatus.OK) 
+			  {
+				//alert("found address: " + results[0].geometry.location.toString());
+				map.setCenter(results[0].geometry.location);
+				map.setZoom(14);
+				
+				addrMarker = new google.maps.Marker({
+				  position: results[0].geometry.location, 
+				  map: map, 
+				  icon: addrMarkerImage,
+				  animation: google.maps.Animation.DROP,
+				  title:address
+				});
+				
+				//this is where we search for points within a circle based on the searchRadius value
+				searchStr += " AND ST_INTERSECTS(geometry, CIRCLE(LATLNG" + results[0].geometry.location.toString() + "," + searchRadius + "))";
+				
+				//get using all filters
+				searchRecords = new google.maps.FusionTablesLayer(fusionTableId, {
+					query: searchStr}
+					);
+					
+				//this seems redundant ... but you need to handle this both inside and outside of the geocode callback
+				//alert(searchStr);
+				searchRecords.setMap(map);
+				displayCount(searchStr);
+			  } 
+			  else 
+			  {
+				alert("We could not find your address: " + status);
+			  }
+			});
+		}
+		else
+		{
+			//get using all filters
+			searchRecords = new google.maps.FusionTablesLayer(fusionTableId, {
+				query: searchStr}
+				);
+		
+			//sets the map to show the saved search results
+			searchRecords.setMap(map);
+			
+			//display the number of records found in the search (this, unfortunately, has to be a separate call)
+			//also ... the max number it can return is 500!
+			displayCount(searchStr);
+		}
+  	}
+	
+	function clearSearch() {
+		if (searchRecords != null)
+			searchRecords.setMap(null);
+		if (addrMarker != null)
+			addrMarker.setMap(null);	
+		
+		records.setMap(null);
+	}
+	
+	function displayCount(searchStr) {
+	  //set the query using the parameter
+	  var queryText = encodeURIComponent(searchStr);
+	  var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+	  
+	  //set the callback function
+	  query.send(getData);
+	}
+ 
+	//define callback function, this is called when the results are returned
+	function getData(response) {
+	  numRows = "No results found";
+	  name = "";
+	  data = response.getDataTable();
+	  if (data != null)
+	  {
+		  numRows = response.getDataTable().getNumberOfRows();
+		  //can only return up to 500 ... so we say 500+ when we get that result
+		  if (numRows == "500")
+			numRows = "500+";
+		  var name = "results";
+		  if (numRows == "1")
+			name = "result";
+	  }
+	  
+	  $( "#resultCount" ).fadeOut(function() {
+        $( "#resultCount" ).html("found " + numRows + " " + name);
+      });
+	  $( "#resultCount" ).fadeIn();
+	}
+	
+	jQuery(document).ready(function() {
+        initialize();
+        jQuery(".hint").ezpz_hint();
+    });
+
+</script>
 </head>
 <body>
-	<div id="page"> 
-		<div class='content-home'>
-			<p>&laquo; <a href='/'>back to home</a></p>
-			<h1>Searchable Map Template</h1>
-			<p>After receiving several requests for a walkthrough for creating searchable maps with Fusion Tables, 
-			I decided to create this template to help get people started. It includes the basic setup to display a fusion
-			table map and do simple address and radius searches. Once you have this working, feel free to look at my
-			other maps to see how I added the additional filters.</p>
-			
-			<p>I have also compiled a list of <a href='links.html'>useful resources</a> regarding Fusion Tables.</p>
+		<div id="page"> 
+			<h1>Enter your title here</h1>
+			<span class='tagline'>Tagline or sentence describing your map</span>
 			<hr />
-			<div class='c2l'>
-				<img class='l' src='/images/icons/Download.png' title='Download' />
-				<h3><a href='searchable_map_template_v1.zip'>Download the code</a></h3>
-				<p>Get started on your own map!</p>
-				
-				<img class='l' src='/images/icons/Map-Magnify.png' title='Demo' />
-				<h3><a href='demo/index.html'>View the demo</a></h3>
-				<p>Working example of the above demo</p>
+			<div class="content-secondary">
+
+				<div id='search'>
+					<p>Find records using <strong>any</strong> of the fields below:</p>
+
+					<div class='input-addr'>
+						<h4>Address</h4>
+						<p><input class='txt hint' type="text" title="Enter an address or an intersection &hellip;" id="txtSearchAddress" onkeydown="if (event.keyCode == 13) document.getElementById('btnSearch').click()"/></p>
+					</div>
+					<div class='input-radius'>
+						<h4>&nbsp;<span class='mute'>within &hellip;</span></h4>
+						<p>
+						<select id='ddlRadius'>
+							<option value='400'>2 blocks</option>
+							<option value='805'>1/2 mile</option>
+							<option value='1610'>1 mile</option>
+							<option value='3220'>2 miles</option>
+						</select>
+						</p>
+					</div>
+					<div class='clear'></div>
+					<input class="btn" type="button" id="btnSearch" value="Search" onclick="doSearch();" />
+					<span class='mute'><a href='#' onclick="initialize();">reset map</a></span>
+					<span id='resultCount'>&nbsp;</span>
+					<hr />
+					<p class='mute'>View the raw data in Fusion Tables <a href='http://www.google.com/fusiontables/DataSource?dsrcid=303470'>here</a>. 
+					<br />Map and search template by <a href='http://derekeder.com'>Derek Eder</a>.
+				</div>
 			</div>
-			
-			<div class='c2r'>
-				<img src='/images/demo-screenshot.png' alt='Demo screenshot' title='Demo screenshot'/></p>
+			<div class="content-primary">
+				<div id="map_canvas"></div>
 			</div>
-			
-			<div class='clear'></div>
-			<p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">Fusion Tables Searchable Map Template</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://derekeder.com/searchable_map_template/" property="cc:attributionName" rel="cc:attributionURL">Derek Eder</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.</p>
-	</div> 
+	</div>
 </body>
 </html>

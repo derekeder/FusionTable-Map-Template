@@ -1,0 +1,73 @@
+/*--------------------------------------------+
+ | Part: Internet Explorer styles             |
+ +--------------------------------------------+
+ | * html = Internet Explorer 5/6             |
+ | * + html = Internet Explorer 7             |
+ +--------------------------------------------*/
+
+/* Basics
+======================================================================*/
+* html hr { margin: 1em 0 0.833em; }
+* + html hr { margin: 1em 0 0.833em; }
+* html legend { margin-bottom: 1em; }
+* + html legend { margin-bottom: 1em; }
+* html ol { margin-left: 2em; }
+* + html ol { margin-left: 2em; }
+
+
+/* Core layout
+======================================================================*/
+/* Admin */
+* html #admin { border-bottom: 1px solid #999; }
+
+
+/* Content
+======================================================================*/
+
+/* Dedicated searches */
+* html #dedicated-search { height: 1%; }
+* + html #dedicated-search { height: 1%; }
+
+/* FAMT */
+  /* Edit */
+  * html #famt-edit .form-nav { margin-left: -12px; }
+  
+/* Filters */
+* html #filters { height: 1%; }
+* + html #filters { height: 1%; }
+
+/* Footer */
+  /* Subfooter */
+  * html #subfooter { height: 1%; padding-bottom: 0; }
+  * + html #subfooter { height: 1%; padding-bottom: 0; }
+
+/* Forms */
+	/* Buttons */
+	* html .btn { padding: 0.2em 0.9em 0.3em; }
+	* + html .btn { padding: 0.2em 0.9em 0.3em; }
+	
+	/* Checklists */
+	* html .checklist { height: 20em; overflow-x: hidden; }
+	* + html .checklist { overflow-x: hidden; }
+	* html .checklist input { margin-bottom: -1px; }
+	* + html .checklist input { margin: 0; }
+	
+	/* New forms */
+	* html dl.form .label { margin-left: -20%; }
+	* + html dl.form .label { margin-left: -20%; }
+	
+/* Header */
+* html #header { padding-bottom: 1em; }
+* + html #header { padding-bottom: 0.8em; }
+
+/* Navigation */
+  /* Secondary navigation */
+  * html #nav-secondary h2 { height: 1%; }
+  * + html #nav-secondary h2 { height: 1%; }
+  * html #nav-secondary li { height: 1%; }
+  * + html #nav-secondary li { height: 1%; margin-bottom: -3px; }
+  * html #nav-secondary li a { height: 1%; }
+
+/* Tabs */
+* + html .tabs { height: 1%; }
+* + html .tabs a { height: 1%; }

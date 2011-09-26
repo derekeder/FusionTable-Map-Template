@@ -1,0 +1,37 @@
+Fusion Table Searchable Map Template by Derek Eder
+Last Updated 5/11/2011
+
+After receiving several requests for a walkthrough for creating searchable maps with Fusion Tables, I decided to create this template to help get people started. It includes the basic setup to display a fusion table map and do simple address and radius searches. Once you have this working, feel free to look at my other maps to see how I added the additional filters.
+  	
+Follow the steps below and you'll be in business with your own map
+  	
+1. Create a Fusion Table (http://www.google.com/fusiontables/Home)
+2. Make sure at least one column is set to a type of Location and that FT has geocoded it
+3. Set the fusion table to be publicly visible (via the Share button in the upper right) 
+4. Replace the xxxxxx with the ID of your Fusion Table (there's one at the bottom too)
+5. Replace 'geometry' with the name of your location column
+6. *Optional* Add additional seach filters. This will depend on the data you are trying to map. I intentionally left these out to keep this example simple. You can see examples of these by viewing the source on any of these:
+  - http://derekeder.com/maps/chicago-abandoned-buildings/index.html
+  - http://derekeder.com/maps/chicago-bike-crash-reports/index.html
+  - http://derekeder.com/maps/chicago-tif/index.html
+7. Upload this map and all the supporting files (source and styles folders) to your site 
+
+Fusion Tables Resources
+Here's a list of useful links I've come across while creating my searchable maps.
+
+Fusion Tables
+http://www.google.com/fusiontables/Home
+
+Community
+Fusion Tables Issue Tracker - http://code.google.com/p/fusion-tables/issues/list
+Fusion Tables Google Group - http://groups.google.com/group/fusion-tables-users-group
+
+Reference Guides
+Google Maps API - http://code.google.com/apis/maps/documentation/javascript/overlays.html#FusionTables
+Fusion Tables API Developer Guide - http://code.google.com/apis/fusiontables/docs/developers_guide.html
+Fusion Tables API Reference Guide - http://code.google.com/apis/fusiontables/docs/developers_reference.html
+
+Data sources
+Chicago Data Portal - http://data.cityofchicago.org/
+Data.gov - http://www.data.gov/
+geocommons - http://geocommons.com
