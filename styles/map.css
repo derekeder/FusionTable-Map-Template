@@ -19,14 +19,14 @@ body, input, select, textarea { font-family: Calibri, Arial, sans-serif; }
 a { color: #366cb3; text-decoration: none; }
 a:hover { text-decoration: underline; }
 address { font-style: normal; }
-blockquote, dl, ol, p, table, ul { margin-bottom: 1em; font-size: 13px; }
+blockquote, dl, ol, p, table, ul { margin-bottom: 1em; font-size: 15px; }
 body { height: 100%; color: #58595b; font-size: 16px; line-height: 1.35; padding: 0; margin: 0;}
 cite, em { font-style: italic; }
 dt { margin-top: 1.35em; }
 dt:first-child { margin: 0; }
 fieldset { border: 1px solid #ddd; margin-bottom: 2em; padding: 1em 1.5em; }
 h1 { color: #4b58a6; font-size: 26px; font-weight: normal; line-height: 1.08; margin-bottom: 0.1em; margin-top: 0.3em; width: 65.5%; }
-h1 span, h2 span, h3 span { font-size: 13px; font-weight: normal; margin-left: 0.5em; }
+h1 span, h2 span, h3 span { font-size: 15px; font-weight: normal; margin-left: 0.5em; }
 h2 { color: #4b58a6; font-size: 18px; line-height: 1.3; margin-bottom: 7px; }
 h2, h3, h4, h5, h6, strong { font-weight: bold; }
 h3 { color: #4b58a6; margin-top: 0.25em; }
@@ -140,7 +140,7 @@ td .options-h, td .options-v { margin: 0; }
 #layer-button-wards { color: #80B16A; font-weight: bold; }
 #layer-button-districts { color: #3D85C6; font-weight: bold; }
 
-.tagline { font-size: 13px; }
+.tagline { font-size: 15px; }
 
 .btn {
   background: #4A7ABA;
