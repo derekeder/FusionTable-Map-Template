@@ -56,8 +56,10 @@
 		
 		searchStr = "SELECT geometry FROM " + fusionTableId + " WHERE geometry not equal to ''";
 		
-		//by type
-		//best way to filter results by a type is to create a 'type' column and assign each one a number. then we can use the 'IN' operator and return all that are selected
+		//-----filter by type-------
+		//remove this if you don't have any types to filter
+		
+		//best way to filter results by a type is to create a 'type' column and assign each row a number (strings work as well, but numbers are faster). then we can use the 'IN' operator and return all that are selected
 		var searchType = "type IN (-1,";
         if (type1) //drop-off center
 			searchType += "1,";
@@ -67,6 +69,8 @@
 			searchType += "3,";
 
         searchStr += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+		
+		//-------end of filter by type code--------
 		
 		// because the geocode function does a callback, we have to handle it in both cases - when they search for and address and when they dont
 		if (address != "")
