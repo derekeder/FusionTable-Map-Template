@@ -1,8 +1,10 @@
 Fusion Table Searchable Map Template by Derek Eder
-Version 1.1
-Updated 10/2/2011
+Version 1.2
+Updated 11/6/2011
 
 After receiving several requests for a walkthrough for creating searchable maps with Fusion Tables, I decided to create this template to help get people started. It includes the basic setup to display a fusion table map and do simple address and radius searches. Once you have this working, feel free to look at my other maps to see how I added the additional filters.
+
+Demo: http://derekeder.com/searchable_map_template/demo/index.html
   	
 Follow the steps below and you'll be in business with your own map
   	
