@@ -8,7 +8,7 @@
   var addrMarker;
   var addrMarkerImage = 'http://derekeder.com/images/icons/blue-pushpin.png';
   
-  var fusionTableId = 303470; //replace this with the ID of your fusion table
+  var fusionTableId = 2086698; //replace this with the ID of your fusion table
   
   var searchRadius = 805; //in meters ~ 1/2 mile
   var recordName = "result";
@@ -34,6 +34,11 @@
     map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
 	
 	$("#ddlRadius").val("805");
+	
+	$("#cbType1").attr("checked", "checked");
+	$("#cbType2").attr("checked", "checked");
+	$("#cbType3").attr("checked", "checked");
+	
 	searchrecords = null;
 	$("#txtSearchAddress").val("");
 	doSearch();
@@ -45,7 +50,23 @@
 		var address = $("#txtSearchAddress").val();
 		searchRadius = $("#ddlRadius").val();
 		
+		var type1 = $("#cbType1").is(':checked');
+		var type2 = $("#cbType2").is(':checked');
+		var type3 = $("#cbType3").is(':checked');
+		
 		searchStr = "SELECT geometry FROM " + fusionTableId + " WHERE geometry not equal to ''";
+		
+		//by type
+		//best way to filter results by a type is to create a 'type' column and assign each one a number. then we can use the 'IN' operator and return all that are selected
+		var searchType = "type IN (-1,";
+        if (type1) //drop-off center
+			searchType += "1,";
+		if (type2) //private
+			searchType += "2,";
+		if (type3) //hazardous waste site
+			searchType += "3,";
+
+        searchStr += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 		
 		// because the geocode function does a callback, we have to handle it in both cases - when they search for and address and when they dont
 		if (address != "")
@@ -90,7 +111,7 @@
 		else
 		{
 			//get using all filters
-			//console.log(searchStr);
+			console.log(searchStr);
 			searchrecords = new google.maps.FusionTablesLayer(fusionTableId, {
 				query: searchStr}
 				);

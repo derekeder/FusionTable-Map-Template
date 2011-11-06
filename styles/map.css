@@ -5,8 +5,8 @@
 
 /* Imports
 =====================================================================*/
-@import "/styles/reset.css"; /* Reset styles */
-@import "/styles/ie.css"; /* IE styles */
+@import "reset.css"; /* Reset styles */
+@import "ie.css"; /* IE styles */
 
 
 /* Fonts

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Enter your title here</title>
+<title>Searchable map template demo (recycling centers in Chicago)</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -19,18 +19,28 @@
 	jQuery(document).ready(function() {
         initialize();
         jQuery(".hint").ezpz_hint();
+        $(':checkbox').click(function(){
+			doSearch();
+		});
     });
 
 </script>
 </head>
 <body>
 		<div id="page"> 
-			<h1>Enter your title here</h1>
+			<h1>Searchable map template demo (recycling centers in Chicago)</h1>
 			<hr />
 			<div class="content-secondary">
 
 				<div id='search'>
 					<p class='tagline'>Find [something] in [some area]. Tagline or sentence describing your map.</p>
+					
+					<h4>Recycling drop-off type</h4>
+					<ul class='options-v'>
+						<li><span id="label-blue"><label for='cbType1'><input type='checkbox' id='cbType1' />City drop-off location</label></span> <span class='mute'>(<a href='http://www.cityofchicago.org/city/en/depts/streets/supp_info/blue_cart_program.html'>more info</a>)</span></li>
+						<li><span id="label-green"><label for='cbType2'><input type='checkbox' id='cbType2' />Private business</label></span></li>
+						<li><span id="label-red"><label for='cbType3'><input type='checkbox' id='cbType3' />Hazardous materials</label></span> <span class='mute'>(<a href='http://www.cityofchicago.org/city/en/depts/doe/supp_info/hccrf/household_chemicalscomputerrecyclingfacilityoverview.html'>more info</a>)</span></li>
+					</ul>
 
 					<div class='input-addr'>
 						<h4>Address <span>(<a href='#' onclick="findMe(); return false;">find me</a>)</span></h4>
@@ -52,7 +62,7 @@
 					<span class='mute'><a href='#' onclick="initialize();">reset map</a></span>
 					<span id='resultCount'>&nbsp;</span>
 					<hr />
-					<p class='mute'>View the raw data in Fusion Tables <a href='http://www.google.com/fusiontables/DataSource?dsrcid=303470'>here</a>. 
+					<p class='mute'>View the raw data in Fusion Tables <a href='http://www.google.com/fusiontables/DataSource?dsrcid=2086698'>here</a>. 
 					<br />Map and search template by <a href='http://derekeder.com'>Derek Eder</a>.
 				</div>
 			</div>
