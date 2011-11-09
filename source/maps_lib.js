@@ -115,7 +115,7 @@
 		else
 		{
 			//get using all filters
-			console.log(searchStr);
+			//console.log(searchStr);
 			searchrecords = new google.maps.FusionTablesLayer(fusionTableId, {
 				query: searchStr}
 				);
