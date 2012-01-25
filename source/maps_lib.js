@@ -181,6 +181,8 @@
 	      fillOpacity: 0.05,
 	      map: map,
 	      center: point,
+	      clickable: false,
+	      zIndex: -1,
 	      radius: parseInt(searchRadius)
 	    };
 	    searchRadiusCircle = new google.maps.Circle(circleOptions);
