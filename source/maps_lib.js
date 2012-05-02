@@ -1,7 +1,14 @@
-/*------------------------------------------------------------------+
-| Functions used for searchable fusion table maps                  |
-| Requires jQuery                                                  |
-+-------------------------------------------------------------------*/
+/*!
+ * Searchable Map Template with Google Fusion Tables
+ * http://derekeder.com/searchable_map_template/
+ *
+ * Copyright 2012, Derek Eder
+ * Licensed under the MIT license.
+ * https://github.com/derekeder/FusionTable-Map-Template/wiki/License
+ *
+ * Date: 5/2/2012
+ * 
+ */
 
 var map;
 var geocoder;
