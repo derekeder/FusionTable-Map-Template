@@ -1,8 +1,7 @@
 = Fusion Table Searchable Map Template
-http://derekeder.com/searchable_map_template/
-
 You want to put your data on a searchable, filterable map. This is a free, open source tool to help you do it.
 
+More info: http://derekeder.com/searchable_map_template/
 Demo: http://derekeder.com/searchable_map_template/demo/index.html
 
 == Features
@@ -24,7 +23,7 @@ Demo: http://derekeder.com/searchable_map_template/demo/index.html
 
 Follow the steps below and you'll be in business with your own map
 
-* Create a Fusion Table (http://www.google.com/fusiontables/Home)
+* Create a Fusion Table (here's a great tutorial: http://support.google.com/fusiontables/bin/answer.py?hl=en&answer=184641)
 * Make sure at least one column is set to a type of Location and that FT has geocoded it
 * Set the Fusion Table to be publicly visible (via the Share button in the upper right) 
 * In source/maps_lib.js, set your 
