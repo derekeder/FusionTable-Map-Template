@@ -10,36 +10,38 @@
  * 
  */
 
+//Setup section - put your Fusion Table details here
+var fusionTableId = 2086698; //replace this with the ID of your Fusion Table
+var locationColumn = 'geometry'; //name of the location column in your Fusion Table
+
+var map_centroid = new google.maps.LatLng(41.8781136, -87.66677856445312); //center that your map defaults to
+var searchRadius = 805; //in meters ~ 1/2 mile
+var locationScope = 'chicago'; //geographical area appended to all address searches if not present
+var recordName = "result";
+var recordNamePlural = "results";
+
+
 var map;
 var geocoder;
 var addrMarker;
 var addrMarkerImage = 'http://derekeder.com/images/icons/blue-pushpin.png';
 
-var fusionTableId = 2086698; //replace this with the ID of your fusion table
-
-var searchRadius = 805; //in meters ~ 1/2 mile
-var recordName = "result";
-var recordNamePlural = "results";
 var searchrecords;
-
 var searchStr;
 var searchRadiusCircle;
-
-google.load('visualization', '1', {}); //used for custom SQL call to get count
 
 function initialize() {
   $( "#resultCount" ).html("");
 
 	geocoder = new google.maps.Geocoder();
-  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
   var myOptions = {
     zoom: 11,
-    center: chicago,
+    center: map_centroid,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map($("#map_canvas")[0],myOptions);
 
-  $("#ddlRadius").val("805");
+  $("#ddlRadius").val(searchRadius);
   
   $("#cbType1").attr("checked", "checked");
   $("#cbType2").attr("checked", "checked");
@@ -60,7 +62,7 @@ function doSearch()
 	var type2 = $("#cbType2").is(':checked');
 	var type3 = $("#cbType3").is(':checked');
 	
-	searchStr = "SELECT geometry FROM " + fusionTableId + " WHERE geometry not equal to ''";
+	searchStr = "SELECT " + locationColumn + " FROM " + fusionTableId + " WHERE " + locationColumn + " not equal to ''";
 	
 	//-----filter by type-------
 	//remove this if you don't have any types to filter
@@ -80,8 +82,8 @@ function doSearch()
 	
 	// because the geocode function does a callback, we have to handle it in both cases - when they search for and address and when they dont
 	if (address != "") {
-		if (address.toLowerCase().indexOf("chicago") == -1)
-			address = address + " chicago";
+		if (address.toLowerCase().indexOf(locationScope) == -1)
+			address = address + " " + locationScope;
 
 		geocoder.geocode( { 'address': address}, function(results, status) {
 		  if (status == google.maps.GeocoderStatus.OK) {
@@ -98,7 +100,7 @@ function doSearch()
   			});
   			drawSearchRadiusCircle(results[0].geometry.location);
   			
-  			searchStr += " AND ST_INTERSECTS(geometry, CIRCLE(LATLNG" + results[0].geometry.location.toString() + "," + searchRadius + "))";
+  			searchStr += " AND ST_INTERSECTS(" + locationColumn + ", CIRCLE(LATLNG" + results[0].geometry.location.toString() + "," + searchRadius + "))";
   			
   			//get using all filters
   			//console.log(searchStr);
@@ -180,23 +182,22 @@ function drawSearchRadiusCircle(point) {
     searchRadiusCircle = new google.maps.Circle(circleOptions);
 }
 
-function getFTQuery(sql) {
-	var queryText = encodeURIComponent(sql);
-	return new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+function Query(sql, callback) {
+  var sql = encodeURIComponent(sql);
+	$.ajax({url: "https://www.google.com/fusiontables/api/query?sql="+sql+"&jsonCallback="+callback, dataType: "jsonp"});
 }
 
 function displayCount(searchStr) {
   //set the query using the parameter
-  searchStr = searchStr.replace("SELECT geometry ","SELECT Count() ");
+  searchStr = searchStr.replace("SELECT " + locationColumn + " ","SELECT Count() ");
   
   //set the callback function
-  getFTQuery(searchStr).send(displaySearchCount);
+  Query(searchStr,"displaySearchCount");
 }
 
-function displaySearchCount(response) {
-  var numRows = 0;
-  if (response.getDataTable().getNumberOfRows() > 0)
-  	numRows = parseInt(response.getDataTable().getValue(0, 0));
+function displaySearchCount(json) {
+  var numRows = json["table"]["rows"][0];
+  
   var name = recordNamePlural;
   if (numRows == 1)
 	name = recordName;
@@ -204,7 +205,7 @@ function displaySearchCount(response) {
       $( "#resultCount" ).html(addCommas(numRows) + " " + name + " found");
     });
   $( "#resultCount" ).fadeIn();
-}
+};
 
 function addCommas(nStr) {
 	nStr += '';

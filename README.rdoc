@@ -1,0 +1,85 @@
+= Fusion Table Searchable Map Template
+http://derekeder.com/searchable_map_template/
+
+You want to put your data on a searchable, filterable map. This is a free, open source tool to help you do it.
+
+Demo: http://derekeder.com/searchable_map_template/demo/index.html
+
+== Features
+
+  * clean, full screen layout
+  * address search (with variable radius)
+  * geolocation (find me!)
+  * results count (using Google's visualization API)
+  * ability to easily add additional search filters (checkboxes, sliders, etc)
+  * all done with HTML, CSS and Javascript - no server side code required
+  
+== Dependencies
+
+  * Google Fusion Tables
+  * Google Maps API V3
+  * jQuery
+
+== Setup
+
+Follow the steps below and you'll be in business with your own map
+  	
+  # Create a Fusion Table (http://www.google.com/fusiontables/Home)
+  # Make sure at least one column is set to a type of Location and that FT has geocoded it
+  # Set the Fusion Table to be publicly visible (via the Share button in the upper right) 
+  # In source/maps_lib.js, set your 
+    * fusionTableId to the ID of your Fusion Table (there's one at the bottom of index.html too)
+    * locationColumn to the name of your location column in your Fusion Table
+    * map_centroid to the lat/long you want your map to center on
+    * locationScope to the area you want to limit searches to (set to 'Chicago' by default)
+    * recordName and recordNamePlural to the name of the items in your Fusion Table
+  # *Optional* Add/modify additional search filters to the doSearch() function (maps_lib.js line 59). This will depend on the data you are trying to map. I put in one example of filtering by a type column. You can see additional examples of these by viewing the source on any of these:
+    * http://chicagobuildings.org
+    * http://derekeder.com/maps/chicago-bike-crash-reports/index.html
+    * http://derekeder.com/maps/chicago-tif/index.html
+  # Upload this map and all the supporting files (source and styles folders) to your site 
+
+
+== Team
+
+* Derek Eder mailto:derek.eder@gmail.com
+
+== Resources
+
+  Fusion Tables 
+  http://www.google.com/fusiontables/Home
+
+  Community
+  Fusion Tables Issue Tracker - http://code.google.com/p/fusion-tables/issues/list
+  Fusion Tables Google Group - http://groups.google.com/group/fusion-tables-users-group
+
+  Reference Guides
+  Google Maps API - http://code.google.com/apis/maps/documentation/javascript/overlays.html#FusionTables
+  Fusion Tables API Developer Guide - http://code.google.com/apis/fusiontables/docs/developers_guide.html
+  Fusion Tables API Reference Guide - http://code.google.com/apis/fusiontables/docs/developers_reference.html
+
+
+== More detail needed?
+
+Contact me via email!
+
+
+== Errors / Bugs
+
+If something is not behaving intuitively, it is a bug, and should be reported.
+Report it here: https://github.com/derekeder/FusionTable-Map-Template/issues
+
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Commit, do not mess with rakefile, version, or history.
+  * (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2012 Derek Eder. Released under the MIT License.
+
+See LICENSE for details https://github.com/derekeder/FusionTable-Map-Template/wiki/License
