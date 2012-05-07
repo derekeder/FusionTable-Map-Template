@@ -9,7 +9,7 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 * clean, full screen layout
 * address search (with variable radius)
 * geolocation (find me!)
-* results count (using Google's visualization API)
+* results count (using Google's Fusion Tables API)
 * ability to easily add additional search filters (checkboxes, sliders, etc)
 * all done with HTML, CSS and Javascript - no server side code required
   
@@ -23,20 +23,20 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 
 Follow the steps below and you'll be in business with your own map
 
-* Create a Fusion Table (here's a great tutorial: http://support.google.com/fusiontables/bin/answer.py?hl=en&answer=184641)
-* Make sure at least one column is set to a type of Location and that FT has geocoded it
-* Set the Fusion Table to be publicly visible (via the Share button in the upper right) 
-* In source/maps_lib.js, set your 
-  * fusionTableId to the ID of your Fusion Table (there's one at the bottom of index.html too)
-  * locationColumn to the name of your location column in your Fusion Table
-  * map_centroid to the lat/long you want your map to center on
-  * locationScope to the area you want to limit searches to (set to 'Chicago' by default)
-  * recordName and recordNamePlural to the name of the items in your Fusion Table
-* *Optional* Add/modify additional search filters to the doSearch() function (maps_lib.js line 59). This will depend on the data you are trying to map. I put in one example of filtering by a type column. You can see additional examples of these by viewing the source on any of these:
-  * http://chicagobuildings.org
-  * http://derekeder.com/maps/chicago-bike-crash-reports/index.html
-  * http://derekeder.com/maps/chicago-tif/index.html
-* Upload this map and all the supporting files (source and styles folders) to your site 
+1. Create a Fusion Table (here's a great tutorial: http://support.google.com/fusiontables/bin/answer.py?hl=en&answer=184641)
+1. Make sure at least one column is set to a type of Location and that FT has geocoded it
+1. Set the Fusion Table to be publicly visible (via the Share button in the upper right) 
+1. In source/maps_lib.js, set your 
+ - *fusionTableId* to the ID of your Fusion Table (there's one at the bottom of index.html too)
+ - *locationColumn* to the name of your location column in your Fusion Table
+ - *map_centroid* to the lat/long you want your map to center on
+ - *locationScope* to the area you want to limit searches to (set to 'Chicago' by default)
+ - *recordName* and *recordNamePlural* to the name of the items in your Fusion Table
+1. *Optional* Add/modify additional search filters to the doSearch() function (maps_lib.js line 59). This will depend on the data you are trying to map. I put in one example of filtering by a type column. You can see additional examples of these by viewing the source on any of these:
+ - http://chicagobuildings.org
+ - http://derekeder.com/maps/chicago-bike-crash-reports/index.html
+ - http://derekeder.com/maps/chicago-tif/index.html
+1. Upload this map and all the supporting files (source and styles folders) to your site 
 
 
 == Resources
