@@ -196,7 +196,11 @@ function displayCount(searchStr) {
 }
 
 function displaySearchCount(json) {
+  //console.log(json);
   var numRows = json["table"]["rows"][0];
+  
+  if (numRows == null)
+    numRows = 0;
   
   var name = recordNamePlural;
   if (numRows == 1)
