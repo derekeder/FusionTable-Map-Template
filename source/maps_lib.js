@@ -16,13 +16,13 @@ var MapsLib = {
   //Setup - put your Fusion Table details here
   fusionTableId:      2086698,        //the ID of your Fusion Table (found under File => About)
   locationColumn:     "geometry",     //name of the location column in your Fusion Table
-  searchRadius:       805,            //in meters ~ 1/2 mile
-  defaultZoom:        11,             //zoom level when map is loaded (bigger is more zoomed in)
+  map_centroid:       new google.maps.LatLng(41.8781136, -87.66677856445312), //center that your map defaults to
+  locationScope:      "chicago",      //geographical area appended to all address searches
   recordName:         "result",       //for showing number of results
   recordNamePlural:   "results", 
-  locationScope:      "chicago",      //geographical area appended to all address searches
-  map_centroid:       new google.maps.LatLng(41.8781136, -87.66677856445312), //center that your map defaults to
   
+  searchRadius:       805,            //in meters ~ 1/2 mile
+  defaultZoom:        11,             //zoom level when map is loaded (bigger is more zoomed in)
   addrMarkerImage: 'http://derekeder.com/images/icons/blue-pushpin.png',
   
   initialize: function() {
