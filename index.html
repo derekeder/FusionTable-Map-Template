@@ -35,6 +35,14 @@
 		  MapsLib.initialize(); 
 		  return false;
 		});
+		
+		$("#txtSearchAddress").keydown(function(e){
+        var key =  e.keyCode ? e.keyCode : e.which;
+        if(key == 13) {
+            $('#btnSearch').click();
+            return false;
+        }
+    });
   });
 
 </script>
@@ -50,14 +58,38 @@
 					
 					<h4>Recycling drop-off type</h4>
 					<ul class='options-v'>
-						<li><span id="label-blue"><label for='cbType1'><input type='checkbox' id='cbType1' />City drop-off location</label></span> <span class='mute'>(<a href='http://www.cityofchicago.org/city/en/depts/streets/supp_info/blue_cart_program.html'>more info</a>)</span></li>
-						<li><span id="label-green"><label for='cbType2'><input type='checkbox' id='cbType2' />Private business</label></span></li>
-						<li><span id="label-red"><label for='cbType3'><input type='checkbox' id='cbType3' />Hazardous materials</label></span> <span class='mute'>(<a href='http://www.cityofchicago.org/city/en/depts/doe/supp_info/hccrf/household_chemicalscomputerrecyclingfacilityoverview.html'>more info</a>)</span></li>
+						<li>
+						  <span id="label-blue">
+						    <label>
+						      <input type='checkbox' id='cbType1' />City drop-off location
+						    </label>
+						  </span> 
+						  <span class='mute'>
+						    (<a href='http://www.cityofchicago.org/city/en/depts/streets/supp_info/blue_cart_program.html'>more info</a>)
+						  </span>
+						</li>
+						<li>
+						  <span id="label-green">
+						    <label>
+						      <input type='checkbox' id='cbType2' />Private business
+						    </label>
+						  </span>
+						</li>
+						<li>
+						  <span id="label-red">
+						    <label>
+						      <input type='checkbox' id='cbType3' />Hazardous materials
+						    </label>
+						  </span> 
+						<span class='mute'>
+						  (<a href='http://www.cityofchicago.org/city/en/depts/doe/supp_info/hccrf/household_chemicalscomputerrecyclingfacilityoverview.html'>more info</a>)
+						</span>
+				</li>
 					</ul>
 
 					<div class='input-addr'>
 						<h4>Address <span>(<a href='#' id="findMe">find me</a>)</span></h4>
-						<p><input class='txt hint' type="text" title="Enter an address or an intersection &hellip;" id="txtSearchAddress" onkeydown="if (event.keyCode == 13) document.getElementById('btnSearch').click()"/></p>
+						<p><input class='txt hint' type="text" title="Enter an address or an intersection &hellip;" id="txtSearchAddress" /></p>
 					</div>
 					<div class='input-radius'>
 						<h4>&nbsp;<span class='mute'>within &hellip;</span></h4>

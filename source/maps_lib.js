@@ -13,15 +13,16 @@
 var MapsLib = MapsLib || {};
 var MapsLib = {
   
-  //Setup section - put your Fusion Table details here
-  fusionTableId: 2086698, //replace MapsLib with the ID of your Fusion Table
-  locationColumn: 'geometry', //name of the location column in your Fusion Table
+  //Setup - put your Fusion Table details here
+  fusionTableId:      2086698,        //the ID of your Fusion Table (found under File => About)
+  locationColumn:     "geometry",     //name of the location column in your Fusion Table
+  searchRadius:       805,            //in meters ~ 1/2 mile
+  defaultZoom:        11,             //zoom level when map is loaded (bigger is more zoomed in)
+  recordName:         "result",       //for showing number of results
+  recordNamePlural:   "results", 
+  locationScope:      "chicago",      //geographical area appended to all address searches
+  map_centroid:       new google.maps.LatLng(41.8781136, -87.66677856445312), //center that your map defaults to
   
-  map_centroid: new google.maps.LatLng(41.8781136, -87.66677856445312), //center that your map defaults to
-  searchRadius: 805, //in meters ~ 1/2 mile
-  locationScope: 'chicago', //geographical area appended to all address searches if not present
-  recordName: "result",
-  recordNamePlural: "results", 
   addrMarkerImage: 'http://derekeder.com/images/icons/blue-pushpin.png',
   
   initialize: function() {
@@ -29,7 +30,7 @@ var MapsLib = {
   
   	geocoder = new google.maps.Geocoder();
     var myOptions = {
-      zoom: 11,
+      zoom: MapsLib.defaultZoom,
       center: MapsLib.map_centroid,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -50,37 +51,33 @@ var MapsLib = {
   	MapsLib.clearSearch();
   	var address = $("#txtSearchAddress").val();
   	MapsLib.searchRadius = $("#ddlRadius").val();
-  	
-  	var type1 = $("#cbType1").is(':checked');
-  	var type2 = $("#cbType2").is(':checked');
-  	var type3 = $("#cbType3").is(':checked');
-  	
+
   	var searchStr = "SELECT " + MapsLib.locationColumn + " FROM " + MapsLib.fusionTableId + " WHERE " + MapsLib.locationColumn + " not equal to ''";
   	
   	//-----filter by type-------
   	//remove MapsLib if you don't have any types to filter
   	
+  	var type1 = $("#cbType1").is(':checked');
+  	var type2 = $("#cbType2").is(':checked');
+  	var type3 = $("#cbType3").is(':checked');
+  	
   	//best way to filter results by a type is to create a 'type' column and assign each row a number (strings work as well, but numbers are faster). then we can use the 'IN' operator and return all that are selected
   	var searchType = "type IN (-1,";
-        if (type1) //drop-off center
-  		searchType += "1,";
-  	if (type2) //private
-  		searchType += "2,";
-  	if (type3) //hazardous waste site
-  		searchType += "3,";
+    if (type1) searchType += "1,";
+  	if (type2) searchType += "2,";
+  	if (type3) searchType += "3,";
   
     searchStr += " AND " + searchType.slice(0, searchType.length - 1) + ")";
   	
   	//-------end of filter by type code--------
   	
-  	// because the geocode function does a callback, we have to handle it in both cases - when they search for and address and when they dont
+  	//the geocode function does a callback so we have to handle it in both cases - when they search for and address and when they dont
   	if (address != "") {
   		if (address.toLowerCase().indexOf(MapsLib.locationScope) == -1)
   			address = address + " " + MapsLib.locationScope;
   
   		geocoder.geocode( { 'address': address}, function(results, status) {
   		  if (status == google.maps.GeocoderStatus.OK) {
-    			//console.log("found address: " + results[0].geometry.location.toString());
     			map.setCenter(results[0].geometry.location);
     			map.setZoom(14);
     			
@@ -95,30 +92,26 @@ var MapsLib = {
     			
     			searchStr += " AND ST_INTERSECTS(" + MapsLib.locationColumn + ", CIRCLE(LATLNG" + results[0].geometry.location.toString() + "," + MapsLib.searchRadius + "))";
     			
-    			//get using all filters
-    			//console.log(searchStr);
-    			MapsLib.searchrecords = new google.maps.FusionTablesLayer(MapsLib.fusionTableId, {
-    				query: searchStr
-    		  });
-    		
-    			MapsLib.searchrecords.setMap(map);
-    			MapsLib.displayCount(searchStr);
+    			MapsLib.submitSearch(searchStr, map);
   		  } 
   		  else {
   		    alert("We could not find your address: " + status);
   		  }
   		});
   	}
-  	else {
-  		//get using all filters
-  		//console.log(searchStr);
-  		MapsLib.searchrecords = new google.maps.FusionTablesLayer(MapsLib.fusionTableId, {
-  			query: searchStr
-  		});
-  	
-  		MapsLib.searchrecords.setMap(map);
-  		MapsLib.displayCount(searchStr);
+  	else { //search without geocoding callback
+  		MapsLib.submitSearch(searchStr, map);
   	}
+  },
+  
+  submitSearch: function(searchStr, map) {
+    //get using all filters
+		MapsLib.searchrecords = new google.maps.FusionTablesLayer(MapsLib.fusionTableId, {
+			query: searchStr
+	  });
+	
+		MapsLib.searchrecords.setMap(map);
+		MapsLib.displayCount(searchStr);
   },
   
   clearSearch: function() {
@@ -181,15 +174,11 @@ var MapsLib = {
   },
   
   displayCount: function(searchStr) {
-    //set the query using the parameter
     searchStr = searchStr.replace("SELECT " + MapsLib.locationColumn + " ","SELECT Count() ");
-    
-    //set the callback function
     MapsLib.Query(searchStr,"MapsLib.displaySearchCount");
   },
   
-  displaySearchCount: function(json) {
-    //console.log(json);
+  displaySearchCount: function(json) { 
     var numRows = json["table"]["rows"][0];
     
     if (numRows == null)
