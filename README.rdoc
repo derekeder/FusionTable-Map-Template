@@ -9,30 +9,37 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 * clean, full screen layout
 * address search (with variable radius)
 * geolocation (find me!)
-* results count (using Google's Fusion Tables API)
+* results count (using Google's Fusion Tables v1 API)
+* RESTful URLs for sharing searches
 * ability to easily add additional search filters (checkboxes, sliders, etc)
 * all done with HTML, CSS and Javascript - no server side code required
   
 == Dependencies
 
-* Google Fusion Tables
-* Google Maps API V3
-* jQuery
+* Google Fusion Tables http://www.google.com/fusiontables/Home
+* Google Maps API V3 https://developers.google.com/maps/documentation/javascript
+* jQuery http://jquery.org
+* jQuery Address http://www.asual.com/jquery/address
+* Twitter Bootstrap http://twitter.github.com/bootstrap
 
 == Setup
 
-Follow the steps below and you'll be in business with your own map
+This template is now supports the Fusion Tables v1 API. For more info on this, see https://developers.google.com/fusiontables/docs/v1/migration_guide
+
+Follow the steps below and you'll be in business with your own map.
 
 1. Create a Fusion Table (here's a great tutorial: http://support.google.com/fusiontables/bin/answer.py?hl=en&answer=184641)
 1. Make sure at least one column is set to a type of Location and that FT has geocoded it
 1. Set the Fusion Table to be publicly visible (via the Share button in the upper right) 
+1. Turn on the Fusion Tables API in the Google APIs Console: https://code.google.com/apis/console/
 1. In source/maps_lib.js, set your 
-   1. *fusionTableId* to the ID of your Fusion Table (there's one at the bottom of index.html too)
+   1. *fusionTableId* to the encrypted ID of your Fusion Table. *Note*: Google is phasing out numeric IDs soon
+   1. *googleApiKey* to the API key from your Google API Console: https://code.google.com/apis/console/
    1. *locationColumn* to the name of your location column in your Fusion Table
    1. *map_centroid* to the lat/long you want your map to center on
    1. *locationScope* to the area you want to limit searches to (set to 'Chicago' by default)
    1. *recordName* and *recordNamePlural* to the name of the items in your Fusion Table
-1. *Optional* Add/modify additional search filters to the doSearch() function (maps_lib.js line 59). This will depend on the data you are trying to map. I put in one example of filtering by a type column. You can see additional examples of these by viewing the source on any of these:
+1. *Optional* Add/modify additional search filters to the doSearch() function (maps_lib.js line 69). This will depend on the data you are trying to map. I put in one example of filtering by a type column. You can see additional examples of these by viewing the source on any of these:
    * http://chicagobuildings.org
    * http://derekeder.com/maps/chicago-bike-crash-reports/index.html
    * http://derekeder.com/maps/chicago-tif/index.html
@@ -42,7 +49,8 @@ Follow the steps below and you'll be in business with your own map
 == Resources
 
 Fusion Tables 
-* http://www.google.com/fusiontables/Home
+* Home - http://www.google.com/fusiontables/Home
+* v1 API Migration Guide - https://developers.google.com/fusiontables/docs/v1/migration_guide
 
 Community
 * Fusion Tables Issue Tracker - http://code.google.com/p/fusion-tables/issues/list
@@ -56,7 +64,7 @@ Reference Guides
 
 == More detail needed?
 
-Contact me via email! Derek Eder mailto:derek.eder@gmail.com
+Contact me via email! Derek Eder mailto:derek.eder+git@gmail.com
 
 
 == Errors / Bugs
@@ -69,9 +77,7 @@ Report it here: https://github.com/derekeder/FusionTable-Map-Template/issues
  
 * Fork the project.
 * Make your feature addition or bug fix.
-* Commit, do not mess with rakefile, version, or history.
-  * (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+* Commit and send me a pull request.
 
 == Copyright
 
