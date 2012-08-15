@@ -50,6 +50,7 @@ Follow the steps below and you'll be in business with your own map.
 
 Fusion Tables 
 * Home - http://www.google.com/fusiontables/Home
+* v1 API Documentation - https://developers.google.com/fusiontables/docs/v1/using
 * v1 API Migration Guide - https://developers.google.com/fusiontables/docs/v1/migration_guide
 
 Community
