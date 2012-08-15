@@ -7,10 +7,11 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 == Features
 
 * clean, full screen layout
+* *new* mobile and tablet friendly using responsive design
 * address search (with variable radius)
 * geolocation (find me!)
 * results count (using Google's Fusion Tables v1 API)
-* RESTful URLs for sharing searches
+* *new* RESTful URLs for sharing searches
 * ability to easily add additional search filters (checkboxes, sliders, etc)
 * all done with HTML, CSS and Javascript - no server side code required
   
