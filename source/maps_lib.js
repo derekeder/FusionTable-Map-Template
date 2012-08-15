@@ -6,15 +6,23 @@
  * Licensed under the MIT license.
  * https://github.com/derekeder/FusionTable-Map-Template/wiki/License
  *
- * Date: 5/2/2012
+ * Date: 8/15/2012
  * 
  */
-
+ 
 var MapsLib = MapsLib || {};
 var MapsLib = {
   
-  //Setup - put your Fusion Table details here
-  fusionTableId:      2086698,        //the ID of your Fusion Table (found under File => About)
+  //Setup section - put your Fusion Table details here
+  //Using the v1 Fusion Tables API. See https://developers.google.com/fusiontables/docs/v1/migration_guide for more info
+  
+  //the encrypted Table ID of your Fusion Table (found under File => About)
+  //NOTE: numeric IDs will be depricated soon
+  fusionTableId:      "1m4Ez9xyTGfY2CU6O-UgEcPzlS0rnzLU93e4Faa0",  
+  
+  //*NEW* API key. found at https://code.google.com/apis/console/      
+  googleApiKey:       "AIzaSyAb27ChST-9Vu1foGE4bxV17aF4Aw_tjZ8",        
+  
   locationColumn:     "geometry",     //name of the location column in your Fusion Table
   map_centroid:       new google.maps.LatLng(41.8781136, -87.66677856445312), //center that your map defaults to
   locationScope:      "chicago",      //geographical area appended to all address searches
@@ -24,6 +32,7 @@ var MapsLib = {
   searchRadius:       805,            //in meters ~ 1/2 mile
   defaultZoom:        11,             //zoom level when map is loaded (bigger is more zoomed in)
   addrMarkerImage: 'http://derekeder.com/images/icons/blue-pushpin.png',
+  currentPinpoint: null,
   
   initialize: function() {
     $( "#resultCount" ).html("");
@@ -34,65 +43,66 @@ var MapsLib = {
       center: MapsLib.map_centroid,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    map = new google.maps.Map($("#map_canvas")[0],myOptions);
-  
-    $("#ddlRadius").val(MapsLib.searchRadius);
-    
-    $("#cbType1").attr("checked", "checked");
-    $("#cbType2").attr("checked", "checked");
-    $("#cbType3").attr("checked", "checked");
+    map = new google.maps.Map($("#mapCanvas")[0],myOptions);
     
     MapsLib.searchrecords = null;
-    $("#txtSearchAddress").val("");
+    
+    //reset filters
+    $("#txtSearchAddress").val(MapsLib.convertToPlainString($.address.parameter('address')));
+    var loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
+    if (loadRadius != "") $("#ddlRadius").val(loadRadius);
+    else $("#ddlRadius").val(MapsLib.searchRadius);
+    $(":checkbox").attr("checked", "checked");
+    $("#resultCount").hide();
+     
+    //run the default search
     MapsLib.doSearch();
   },
   
-  doSearch: function() {
+  doSearch: function(location) {
     MapsLib.clearSearch();
     var address = $("#txtSearchAddress").val();
     MapsLib.searchRadius = $("#ddlRadius").val();
 
-    var searchStr = "SELECT " + MapsLib.locationColumn + " FROM " + MapsLib.fusionTableId + " WHERE " + MapsLib.locationColumn + " not equal to ''";
+    var whereClause = MapsLib.locationColumn + " not equal to ''";
     
     //-----filter by type-------
     //remove MapsLib if you don't have any types to filter
     
-    var type1 = $("#cbType1").is(':checked');
-    var type2 = $("#cbType2").is(':checked');
-    var type3 = $("#cbType3").is(':checked');
-    
     //best way to filter results by a type is to create a 'type' column and assign each row a number (strings work as well, but numbers are faster). then we can use the 'IN' operator and return all that are selected
     var searchType = "type IN (-1,";
-    if (type1) searchType += "1,";
-    if (type2) searchType += "2,";
-    if (type3) searchType += "3,";
-  
-    searchStr += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+    if ( $("#cbType1").is(':checked')) searchType += "1,";
+    if ( $("#cbType2").is(':checked')) searchType += "2,";
+    if ( $("#cbType3").is(':checked')) searchType += "3,";
+    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
     
     //-------end of filter by type code--------
     
-    //the geocode function does a callback so we have to handle it in both cases - when they search for and address and when they dont
     if (address != "") {
       if (address.toLowerCase().indexOf(MapsLib.locationScope) == -1)
         address = address + " " + MapsLib.locationScope;
   
       geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-          map.setCenter(results[0].geometry.location);
+          MapsLib.currentPinpoint = results[0].geometry.location;
+          
+          $.address.parameter('address', encodeURIComponent(address));
+          $.address.parameter('radius', encodeURIComponent(MapsLib.searchRadius));
+          map.setCenter(MapsLib.currentPinpoint);
           map.setZoom(14);
           
           MapsLib.addrMarker = new google.maps.Marker({
-            position: results[0].geometry.location, 
+            position: MapsLib.currentPinpoint, 
             map: map, 
             icon: MapsLib.addrMarkerImage,
             animation: google.maps.Animation.DROP,
             title:address
           });
-          MapsLib.drawSearchRadiusCircle(results[0].geometry.location);
           
-          searchStr += " AND ST_INTERSECTS(" + MapsLib.locationColumn + ", CIRCLE(LATLNG" + results[0].geometry.location.toString() + "," + MapsLib.searchRadius + "))";
+          whereClause += " AND ST_INTERSECTS(" + MapsLib.locationColumn + ", CIRCLE(LATLNG" + MapsLib.currentPinpoint.toString() + "," + MapsLib.searchRadius + "))";
           
-          MapsLib.submitSearch(searchStr, map);
+          MapsLib.drawSearchRadiusCircle(MapsLib.currentPinpoint);
+          MapsLib.submitSearch(whereClause, map, MapsLib.currentPinpoint);
         } 
         else {
           alert("We could not find your address: " + status);
@@ -100,18 +110,21 @@ var MapsLib = {
       });
     }
     else { //search without geocoding callback
-      MapsLib.submitSearch(searchStr, map);
+      MapsLib.submitSearch(whereClause, map);
     }
   },
   
-  submitSearch: function(searchStr, map) {
+  submitSearch: function(whereClause, map, location) {
     //get using all filters
-    MapsLib.searchrecords = new google.maps.FusionTablesLayer(MapsLib.fusionTableId, {
-      query: searchStr
+    MapsLib.searchrecords = new google.maps.FusionTablesLayer({
+      query: {
+        from:   MapsLib.fusionTableId,
+        select: MapsLib.locationColumn,
+        where:  whereClause
+      }
     });
-  
     MapsLib.searchrecords.setMap(map);
-    MapsLib.displayCount(searchStr);
+    MapsLib.displayCount(whereClause);
   },
   
   clearSearch: function() {
@@ -168,21 +181,25 @@ var MapsLib = {
       MapsLib.searchRadiusCircle = new google.maps.Circle(circleOptions);
   },
   
-  query: function(sql, callback) {
-    var sql = encodeURIComponent(sql);
-    $.ajax({url: "https://www.google.com/fusiontables/api/query?sql="+sql+"&jsonCallback="+callback, dataType: "jsonp"});
+  query: function(selectColumns, whereClause, callback) {
+    var queryStr = [];
+    queryStr.push("SELECT " + selectColumns);
+    queryStr.push(" FROM " + MapsLib.fusionTableId);
+    queryStr.push(" WHERE " + whereClause);
+  
+    var sql = encodeURIComponent(queryStr.join(" "));
+    $.ajax({url: "https://www.googleapis.com/fusiontables/v1/query?sql="+sql+"&callback="+callback+"&key="+MapsLib.googleApiKey, dataType: "jsonp"});
   },
   
-  displayCount: function(searchStr) {
-    searchStr = searchStr.replace("SELECT " + MapsLib.locationColumn + " ","SELECT Count() ");
-    MapsLib.query(searchStr,"MapsLib.displaySearchCount");
+  displayCount: function(whereClause) {
+    var selectColumns = "Count()";
+    MapsLib.query(selectColumns, whereClause,"MapsLib.displaySearchCount");
   },
   
   displaySearchCount: function(json) { 
-    var numRows = json["table"]["rows"][0];
-    
-    if (numRows == null)
-      numRows = 0;
+    var numRows = 0;
+    if (json["rows"] != null)
+      numRows = json["rows"][0];
     
     var name = MapsLib.recordNamePlural;
     if (numRows == 1)
@@ -203,5 +220,11 @@ var MapsLib = {
       x1 = x1.replace(rgx, '$1' + ',' + '$2');
     }
     return x1 + x2;
+  },
+  
+  //converts a slug or query string in to readable text
+  convertToPlainString: function(text) {
+    if (text == undefined) return '';
+  	return decodeURIComponent(text);
   }
 }
