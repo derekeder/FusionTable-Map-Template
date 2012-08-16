@@ -1,7 +1,7 @@
 = Fusion Table Searchable Map Template
 You want to put your data on a searchable, filterable map. This is a free, open source tool to help you do it.
 
-<a href='demo/index.html'><img src='/images/map-template-screenshot.png' alt='Searchable map template demo' title='Searchable map template screenshot'/></a>
+<a href='demo/index.html'>http://derekeder.com/images/map-template-screenshot.png</a>
 
 * Demo: http://derekeder.com/searchable_map_template/demo/index.html
 * More info and examples: http://derekeder.com/searchable_map_template/
