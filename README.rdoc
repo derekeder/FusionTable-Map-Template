@@ -66,16 +66,9 @@ Reference Guides
 * Fusion Tables API Reference Guide - http://code.google.com/apis/fusiontables/docs/developers_reference.html
 
 
-== More detail needed?
+== Errors / Bugs or More detail needed?
 
-Contact me via email! Derek Eder mailto:derek.eder+git@gmail.com
-
-
-== Errors / Bugs
-
-If something is not behaving intuitively, it is a bug, and should be reported.
-Report it here: https://github.com/derekeder/FusionTable-Map-Template/issues
-
+Open a support ticket mailto:tickets@searchablemaptemplate.uservoice.com
 
 == Note on Patches/Pull Requests
  
