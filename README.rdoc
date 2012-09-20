@@ -69,7 +69,7 @@ Reference Guides
 
 If your map isn't displaying any data, try the following:
 
-1. Use the Chrome <a href='https://developers.google.com/chrome-developer-tools/docs/console'>developer console</a> or install <a href='http://getfirebug.com/'>Firebug</a> for FireFox. This will allow you to debug your javascript.
+1. Use the Chrome developer console[https://developers.google.com/chrome-developer-tools/docs/console] or install Firebug[http://getfirebug.com/] for FireFox. This will allow you to debug your javascript.
 1. If you aren't seeing any javascript errors:
    * Make sure that you have at least one column with address or lat/long points set to type 'Location'. You can check this in Fusion Tables under Edit => Modify Columns.
    * Make sure that Fusion Tables has geocoded your column. You check this by going to View => Map. If you see your points on the map, you're good!
