@@ -24,7 +24,11 @@ var MapsLib = {
   //*Important* this key is for demonstration purposes. please register your own.   
   googleApiKey:       "AIzaSyA3FQFrNr5W2OEVmuENqhb2MBB2JabdaOY",        
   
-  locationColumn:     "geometry",     //name of the location column in your Fusion Table
+  //name of the location column in your Fusion Table. 
+  //NOTE: if your location column name has spaces in it, surround it with single quotes 
+  //example: locationColumn:     "'my location'",
+  locationColumn:     "geometry",  
+
   map_centroid:       new google.maps.LatLng(41.8781136, -87.66677856445312), //center that your map defaults to
   locationScope:      "chicago",      //geographical area appended to all address searches
   recordName:         "result",       //for showing number of results
@@ -71,6 +75,8 @@ var MapsLib = {
     //remove MapsLib if you don't have any types to filter
     
     //best way to filter results by a type is to create a 'type' column and assign each row a number (strings work as well, but numbers are faster). then we can use the 'IN' operator and return all that are selected
+    //NOTE: if your column name has spaces in it, surround it with single quotes 
+    //example: var searchType = "'my filter' IN (-1,";
     var searchType = "type IN (-1,";
     if ( $("#cbType1").is(':checked')) searchType += "1,";
     if ( $("#cbType2").is(':checked')) searchType += "2,";
