@@ -65,10 +65,23 @@ Reference Guides
 * Fusion Tables API Developer Guide - http://code.google.com/apis/fusiontables/docs/developers_guide.html
 * Fusion Tables API Reference Guide - http://code.google.com/apis/fusiontables/docs/developers_reference.html
 
+== Common issues/troubleshooting
 
-== Errors / Bugs or More detail needed?
+If your map isn't displaying any data, try the following:
 
-Open a support ticket mailto:tickets@searchablemaptemplate.uservoice.com
+1. Use the Chrome <a href='https://developers.google.com/chrome-developer-tools/docs/console'>developer console</a> or install <a href='http://getfirebug.com/'>Firebug</a> for FireFox. This will allow you to debug your javascript.
+1. If you aren't seeing any javascript errors:
+   * Make sure that you have at least one column with address or lat/long points set to type 'Location'. You can check this in Fusion Tables under Edit => Modify Columns.
+   * Make sure that Fusion Tables has geocoded your column. You check this by going to View => Map. If you see your points on the map, you're good!
+   * Check that your Fusion Table is public (in Fusion Tables, upper right corner => Share button)
+1. If you do see javascript errors:
+   * The error will tell you what line it is failing on. Best to start by going there!
+   * Columns in Fusion Tables are case sensitive, so make sure they are correct.
+   * For columns that have multiple words in the title, make sure to surround the column name in your code with single quotes (example: "'first name'") 
+
+== Still can't figure it out or more detail needed?
+
+Email me! Derek Eder mailto:derek.eder+git@gmail.com
 
 == Note on Patches/Pull Requests
  
