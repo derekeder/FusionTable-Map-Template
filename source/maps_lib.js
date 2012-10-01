@@ -197,6 +197,11 @@ var MapsLib = {
     var sql = encodeURIComponent(queryStr.join(" "));
     $.ajax({url: "https://www.googleapis.com/fusiontables/v1/query?sql="+sql+"&callback="+callback+"&key="+MapsLib.googleApiKey, dataType: "jsonp"});
   },
+
+  handleError: function(json) {
+    if (json["error"] != undefined)
+      console.log("Error in Fusion Table call: " + json["error"]["message"]);
+  },
   
   displayCount: function(whereClause) {
     var selectColumns = "Count()";
@@ -204,6 +209,7 @@ var MapsLib = {
   },
   
   displaySearchCount: function(json) { 
+    MapsLib.handleError(json);
     var numRows = 0;
     if (json["rows"] != null)
       numRows = json["rows"][0];
