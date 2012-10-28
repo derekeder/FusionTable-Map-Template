@@ -72,12 +72,13 @@ var MapsLib = {
     var whereClause = MapsLib.locationColumn + " not equal to ''";
     
     //-----filter by type-------
-    //remove MapsLib if you don't have any types to filter
+    //remove this section if you don't have any types to filter on
+
+    //NOTE: if your column name has spaces in it, make sure to surround it with single quotes as shown 
+    var type_column = "'type'";
     
     //best way to filter results by a type is to create a 'type' column and assign each row a number (strings work as well, but numbers are faster). then we can use the 'IN' operator and return all that are selected
-    //NOTE: if your column name has spaces in it, surround it with single quotes 
-    //example: var searchType = "'my filter' IN (-1,";
-    var searchType = "type IN (-1,";
+    var searchType = type_column + " IN (-1,";
     if ( $("#cbType1").is(':checked')) searchType += "1,";
     if ( $("#cbType2").is(':checked')) searchType += "2,";
     if ( $("#cbType3").is(':checked')) searchType += "3,";
