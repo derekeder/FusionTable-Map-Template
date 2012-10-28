@@ -42,7 +42,7 @@ Follow the steps below and you'll be in business with your own map.
    1. *map_centroid* to the lat/long you want your map to center on
    1. *locationScope* to the area you want to limit searches to (set to 'Chicago' by default)
    1. *recordName* and *recordNamePlural* to the name of the items in your Fusion Table
-1. *Optional* Add/modify additional search filters to the doSearch() function (maps_lib.js line 69). This will depend on the data you are trying to map. I put in one example of filtering by a type column. You can see additional examples of these by viewing the source on any of these:
+1. Add/modify additional checkbox filters to the doSearch() function (maps_lib.js line 74). This will depend on the data you are trying to map. I put in one example of filtering by the 'type' column. *If you don't have any columns to filter with checkboxes, just remove this section of code.* You can see additional examples of these by viewing the source on any of these:
    * http://chicagobuildings.org
    * http://derekeder.com/maps/chicago-bike-crash-reports/index.html
    * http://derekeder.com/maps/chicago-tif/index.html
