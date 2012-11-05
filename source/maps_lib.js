@@ -200,8 +200,15 @@ var MapsLib = {
   },
 
   handleError: function(json) {
-    if (json["error"] != undefined)
-      console.log("Error in Fusion Table call: " + json["error"]["message"]);
+    if (json["error"] != undefined) {
+      var error = json["error"]["errors"]
+      console.log("Error in Fusion Table call!");
+      for (var row in error) {
+        console.log(" Domain: " + error[row]["domain"]);
+        console.log(" Reason: " + error[row]["reason"]);
+        console.log(" Message: " + error[row]["message"]);
+      }
+    }
   },
   
   displayCount: function(whereClause) {
