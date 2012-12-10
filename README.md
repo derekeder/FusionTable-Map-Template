@@ -3,17 +3,17 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 
 ![Searchable Map Template screenshot](http://derekeder.com/images/map-template-screenshot.png)
 
-* Demo: http://derekeder.com/searchable_map_template/demo/index.html
-* More info and examples: http://derekeder.com/searchable_map_template/
+* [Interactive demo](http://derekeder.com/searchable_map_template/demo/index.html)
+* [More info and examples](http://derekeder.com/searchable_map_template/)
 
 ## Features
 
 * clean, full screen layout
-* *new* mobile and tablet friendly using responsive design
+* mobile and tablet friendly using responsive design
 * address search (with variable radius)
 * geolocation (find me!)
 * results count (using Google's Fusion Tables v1 API)
-* *new* RESTful URLs for sharing searches
+* RESTful URLs for sharing searches
 * ability to easily add additional search filters (checkboxes, sliders, etc)
 * all done with HTML, CSS and Javascript - no server side code required
   
@@ -53,15 +53,18 @@ Follow the steps below and you'll be in business with your own map.
 ## Resources
 
 Fusion Tables 
+
 * [Home](http://www.google.com/fusiontables/Home)
 * [v1 API Documentation](https://developers.google.com/fusiontables/docs/v1/using)
 * [v1 API Migration Guide](https://developers.google.com/fusiontables/docs/v1/migration_guide)
 
 Community
+
 * [Fusion Tables Issue Tracker](http://code.google.com/p/fusion-tables/issues/list)
 * [Fusion Tables Google Group](http://groups.google.com/group/fusion-tables-users-group)
 
 Reference Guides
+
 * [Google Maps API](http://code.google.com/apis/maps/documentation/javascript/overlays.html#FusionTables)
 * [Fusion Tables API Developer Guide](http://code.google.com/apis/fusiontables/docs/developers_guide.html)
 * [Fusion Tables API Reference Guide](http://code.google.com/apis/fusiontables/docs/developers_reference.html)
