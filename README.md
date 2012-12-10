@@ -10,7 +10,7 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 
 * clean, full screen layout
 * mobile and tablet friendly using responsive design
-* address search (with variable radius)
+* address search (with variable radius and geocomplete)
 * geolocation (find me!)
 * results count (using Google's Fusion Tables v1 API)
 * RESTful URLs for sharing searches
