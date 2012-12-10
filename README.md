@@ -3,8 +3,8 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 
 ![Searchable Map Template screenshot](http://derekeder.com/images/map-template-screenshot.png)
 
-* [Interactive demo](http://derekeder.com/searchable_map_template/demo/index.html)
-* [More info and examples](http://derekeder.com/searchable_map_template/)
+* Demo: http://derekeder.com/searchable_map_template/demo/index.html
+* More info and examples: http://derekeder.com/searchable_map_template/
 
 ## Features
 
@@ -35,7 +35,7 @@ Follow the steps below and you'll be in business with your own map.
 1. Make sure at least one column is set to a type of Location and that FT has geocoded it
 1. Set the Fusion Table to be publicly visible (via the Share button in the upper right) 
 1. Turn on the Fusion Tables API in the [Google APIs Console](https://code.google.com/apis/console/)
-1. In maps_lib.js, set your 
+1. In source/maps_lib.js, set your 
    1. __fusionTableId__ to the encrypted ID of your Fusion Table. __Note__: Google is phasing out numeric IDs soon
    1. __googleApiKey__ to the API key from your [Google API Console](https://code.google.com/apis/console/)
    1. __locationColumn__ to the name of your location column in your Fusion Table
@@ -53,18 +53,15 @@ Follow the steps below and you'll be in business with your own map.
 ## Resources
 
 Fusion Tables 
-
 * [Home](http://www.google.com/fusiontables/Home)
 * [v1 API Documentation](https://developers.google.com/fusiontables/docs/v1/using)
 * [v1 API Migration Guide](https://developers.google.com/fusiontables/docs/v1/migration_guide)
 
 Community
-
 * [Fusion Tables Issue Tracker](http://code.google.com/p/fusion-tables/issues/list)
 * [Fusion Tables Google Group](http://groups.google.com/group/fusion-tables-users-group)
 
 Reference Guides
-
 * [Google Maps API](http://code.google.com/apis/maps/documentation/javascript/overlays.html#FusionTables)
 * [Fusion Tables API Developer Guide](http://code.google.com/apis/fusiontables/docs/developers_guide.html)
 * [Fusion Tables API Reference Guide](http://code.google.com/apis/fusiontables/docs/developers_reference.html)
@@ -101,4 +98,4 @@ Email me! [Derek Eder](mailto:derek.eder+git@gmail.com)
 
 Copyright (c) 2012 Derek Eder. Released under the MIT License.
 
-See [LICENSE](https://github.com/derekeder/FusionTable-Map-Template/wiki/License) for details. 
+See [LICENSE](https://github.com/derekeder/FusionTable-Map-Template/wiki/License) for details 

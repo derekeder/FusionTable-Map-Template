@@ -7,8 +7,8 @@
     <meta content='' name='description' />
     <meta content='' name='author' />
     <!-- Styles -->
-    <link rel="stylesheet" href="styles/bootstrap.css"/>
-    <link rel="stylesheet" href="styles/bootstrap-responsive.css"/>
+    <link rel="stylesheet" href="styles/bootstrap.spacelab.min.css"/>
+    <link rel="stylesheet" href="styles/bootstrap-responsive.min.css"/>
     <link rel="stylesheet" href="styles/custom.css"/>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -16,65 +16,52 @@
     <![endif]-->
   </head>
   <body>
-    <div class='container-fluid'>
-      <div class='page-header'>
-        <h1>
-          <a href='#'>Searchable Map Template Demo</a> 
-          <small>Tagline or sentence describing your map</small>
-        </h1>
+    <div class='navbar'>
+      <div class='navbar-inner'>
+        <div class='container'>
+          <a class='brand' href='/'>Searchable Map Template</a>
+        </div>
       </div>
+    </div>
+    <div class='container-fluid'>
       <div class='row-fluid'>
-        <div class='span3'>
+        <div class='span4'>
+          <p>This is a nice little section to describe your map. Give a little context to your dots on a map. And maybe a link to <a href='#'>read more &raquo;</a></p>
           <div class='well'>
             <h4>
-              Address <small>(<a id='findMe' href='#'>find me</a>)</small>
+              Address <small>(<a id='find_me' href='#'>find me</a>)</small>
             </h4>
-            <input class='input-block-level' id='txtSearchAddress' placeholder='Enter an address or an intersection' type='text' />
+            <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text' />
             <label>
               within
-              <select class='input-small' id='ddlRadius'>
+              <select class='input-small' id='search_radius'>
                 <option value='400'>2 blocks</option>
                 <option value='805'>1/2 mile</option>
                 <option value='1610'>1 mile</option>
                 <option value='3220'>2 miles</option>
               </select>
             </label>
-            <h4>
-              Recycling services
-            </h4>
-            <ul class='inputs-list unstyled'>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType1' />
-                  <span class='filter-box filter-blue'></span>
-                  City drop-off location
-                </label>
-              </li>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType2' />
-                  <span class='filter-box filter-green'></span>
-                  Private business
-                </label>
-              </li>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType3' />
-                  <span class='filter-box filter-red'></span>
-                  Hazardous materials
-                </label>
-              </li>
-            </ul>
-            <hr />
-            <input class='btn btn-primary btn-large' id='btnSearch' type='button' value='Search' />
+            <input class='btn btn-primary' id='search' type='button' value='Search' />
             <button class='btn' id='reset'>Reset</button>
           </div>
-          <p class='alert alert-info lead' id='resultCount'></p>
+          <div class='well'>
+            <!-- Once you decide what filter you want, place the HTML code here. The section in the maps_lib.js is also marked. Once you're done, feel free to delete this explanatory section.-->
+
+            <h4>Custom filters and views</h4>
+            <p>Take a look at the <a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples'>wiki</a> to see how to add your own custom filters and views like:</p>
+            <ul>
+              <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-checkboxes'>Checkboxes</a></li>
+              <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-checkboxes'>Radio buttons</a></li>
+              <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-textsearches'>Text searches</a></li>
+              <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/List-search-results'>Results lists</a></li>
+            </ul>
+          </div>
+          <p class='alert alert-info lead' id='result_count'></p>
         </div>
-        <div class='span9'>
-          <div id='mapCanvas'></div>
+        <div class='span8'>
+          <div id='map_canvas'></div>
           <p class='pull-right'>
-            Map and <a href='http://derekeder.com/searchable_map_template/'>search template</a> by <a href='http://derekeder.com'>Derek Eder</a>.
+            <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>.
         </p>
         </div>
       </div>
@@ -90,28 +77,31 @@
       //<![CDATA[
         $(window).resize(function () {
           var h = $(window).height(),
-            offsetTop = 130; // Calculate the top offset
+            offsetTop = 90; // Calculate the top offset
         
-          $('#mapCanvas').css('height', (h - offsetTop));
+          $('#map_canvas').css('height', (h - offsetTop));
         }).resize();
         
         $(function() {
           MapsLib.initialize();
+
           $(':checkbox').click(function(){
             MapsLib.doSearch();
           });
-          
-          $('#ddlRadius').change(function(){
+
+          $(':radio').click(function(){
             MapsLib.doSearch();
           });
           
-          $('#btnSearch').click(function(){
+          $('#search_radius').change(function(){
             MapsLib.doSearch();
           });
           
+          $('#search').click(function(){
+            MapsLib.doSearch();
+          });
           
-          
-          $('#findMe').click(function(){
+          $('#find_me').click(function(){
             MapsLib.findMe(); 
             return false;
           });
@@ -122,10 +112,10 @@
             return false;
           });
           
-          $("#txtSearchAddress").keydown(function(e){
+          $(":text").keydown(function(e){
               var key =  e.keyCode ? e.keyCode : e.which;
               if(key == 13) {
-                  $('#btnSearch').click();
+                  $('#search').click();
                   return false;
               }
           });

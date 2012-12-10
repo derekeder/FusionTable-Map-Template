@@ -1,12 +1,6 @@
 a { color: #4B58A6; }
 
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover {
-  color: #ffffff;
-  background-color: #4B58A6;
-}
-
-#mapCanvas img {
+#map_canvas img {
   max-width: none;
 }
 

@@ -40,7 +40,7 @@ var MapsLib = {
   currentPinpoint: null,
   
   initialize: function() {
-    $( "#resultCount" ).html("");
+    $( "#result_count" ).html("");
   
     geocoder = new google.maps.Geocoder();
     var myOptions = {
@@ -48,17 +48,17 @@ var MapsLib = {
       center: MapsLib.map_centroid,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    map = new google.maps.Map($("#mapCanvas")[0],myOptions);
+    map = new google.maps.Map($("#map_canvas")[0],myOptions);
     
     MapsLib.searchrecords = null;
     
     //reset filters
-    $("#txtSearchAddress").val(MapsLib.convertToPlainString($.address.parameter('address')));
+    $("#search_address").val(MapsLib.convertToPlainString($.address.parameter('address')));
     var loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
-    if (loadRadius != "") $("#ddlRadius").val(loadRadius);
-    else $("#ddlRadius").val(MapsLib.searchRadius);
+    if (loadRadius != "") $("#search_radius").val(loadRadius);
+    else $("#search_radius").val(MapsLib.searchRadius);
     $(":checkbox").attr("checked", "checked");
-    $("#resultCount").hide();
+    $("#result_count").hide();
      
     //run the default search
     MapsLib.doSearch();
@@ -66,25 +66,14 @@ var MapsLib = {
   
   doSearch: function(location) {
     MapsLib.clearSearch();
-    var address = $("#txtSearchAddress").val();
-    MapsLib.searchRadius = $("#ddlRadius").val();
+    var address = $("#search_address").val();
+    MapsLib.searchRadius = $("#search_radius").val();
 
     var whereClause = MapsLib.locationColumn + " not equal to ''";
     
-    //-----filter by type-------
-    //remove this section if you don't have any types to filter on
-
-    //NOTE: if your column name has spaces in it, make sure to surround it with single quotes as shown 
-    var type_column = "'type'";
+    //-----custom filters-------
     
-    //best way to filter results by a type is to create a 'type' column and assign each row a number (strings work as well, but numbers are faster). then we can use the 'IN' operator and return all that are selected
-    var searchType = type_column + " IN (-1,";
-    if ( $("#cbType1").is(':checked')) searchType += "1,";
-    if ( $("#cbType2").is(':checked')) searchType += "2,";
-    if ( $("#cbType3").is(':checked')) searchType += "3,";
-    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
-    
-    //-------end of filter by type code--------
+    //-------end of custom filters--------
     
     if (address != "") {
       if (address.toLowerCase().indexOf(MapsLib.locationScope) == -1)
@@ -132,7 +121,7 @@ var MapsLib = {
       }
     });
     MapsLib.searchrecords.setMap(map);
-    MapsLib.displayCount(whereClause);
+    MapsLib.getCount(whereClause);
   },
   
   clearSearch: function() {
@@ -163,7 +152,7 @@ var MapsLib = {
     geocoder.geocode({'latLng': latLngPoint}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         if (results[1]) {
-          $('#txtSearchAddress').val(results[1].formatted_address);
+          $('#search_address').val(results[1].formatted_address);
           $('.hint').focus();
           MapsLib.doSearch();
         }
@@ -211,7 +200,7 @@ var MapsLib = {
     }
   },
   
-  displayCount: function(whereClause) {
+  getCount: function(whereClause) {
     var selectColumns = "Count()";
     MapsLib.query(selectColumns, whereClause,"MapsLib.displaySearchCount");
   },
@@ -225,10 +214,10 @@ var MapsLib = {
     var name = MapsLib.recordNamePlural;
     if (numRows == 1)
     name = MapsLib.recordName;
-    $( "#resultCount" ).fadeOut(function() {
-        $( "#resultCount" ).html(MapsLib.addCommas(numRows) + " " + name + " found");
+    $( "#result_count" ).fadeOut(function() {
+        $( "#result_count" ).html(MapsLib.addCommas(numRows) + " " + name + " found");
       });
-    $( "#resultCount" ).fadeIn();
+    $( "#result_count" ).fadeIn();
   },
   
   addCommas: function(nStr) {
