@@ -49,12 +49,21 @@ Follow the steps below and you'll be in business with your own map.
    * [Chicago TIF Projects](http://derekeder.com/maps/chicago-tif/index.html)
 1. Upload this map and all the supporting files (source and styles folders) to your site 
 
+## Custom Filters and Views
+
+Take a look at the [wiki](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples) to see how to add your own custom filters and views like:
+
+* [Checkboxes](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-checkboxes)
+* [Radio buttons](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-radiobuttons)
+* [Text searches](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-textsearches)
+* [Results lists](https://github.com/derekeder/FusionTable-Map-Template/wiki/List-search-results)
+
 
 ## Resources
 
 Fusion Tables 
 
-* [Home](http://www.google.com/fusiontables/Home)
+* [Fusion Tables Home](http://www.google.com/fusiontables/Home)
 * [v1 API Documentation](https://developers.google.com/fusiontables/docs/v1/using)
 * [v1 API Migration Guide](https://developers.google.com/fusiontables/docs/v1/migration_guide)
 
