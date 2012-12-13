@@ -96,6 +96,28 @@ If your map isn't displaying any data, try the following:
    * Columns in Fusion Tables are case sensitive, so make sure they are correct.
    * For columns that have multiple words in the title, make sure to surround the column name in your code with single quotes (example: "'first name'") 
 
+### My custom map styles won't display! 
+
+This is due to a recent change to the FusionTablesLayer and only effects tables created after mid-November 2012. A __styleId__ and __templateId__ must be defined.
+
+When you create custom styles for the first time, the styleId will be 2. For custom info window layouts, the first templateId will also be 2. The __latest version of this template has these defaults set__, but in case you want to add it to an existing project, use the following code:
+
+<pre>
+   MapsLib.searchrecords = new google.maps.FusionTablesLayer({
+     query: {
+       from:   MapsLib.fusionTableId,
+       select: MapsLib.locationColumn,
+       where:  whereClause,
+       styleId: 2,
+       templateId: 2
+     }
+   });
+</pre>
+
+For reference, styleId 1 is the default look - usually small red dots or red polygons. templateId 1 is the default info window that just shows the first few columns in your table.
+
+For more information, see [Working with styles](https://developers.google.com/fusiontables/docs/v1/using#WorkingStyles) and [Working with templates](https://developers.google.com/fusiontables/docs/v1/using#WorkingInfoWindows) in the Fusion Tables documentation.
+
 ## Still can't figure it out or more detail needed?
 
 Email me! [Derek Eder](mailto:derek.eder+git@gmail.com)
