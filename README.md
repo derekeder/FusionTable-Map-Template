@@ -107,10 +107,10 @@ When you create custom styles for the first time, the styleId will be 2. For cus
      query: {
        from:   MapsLib.fusionTableId,
        select: MapsLib.locationColumn,
-       where:  whereClause,
-       styleId: 2,
-       templateId: 2
-     }
+       where:  whereClause
+     },
+     styleId: 2,
+     templateId: 2
    });
 </pre>
 
