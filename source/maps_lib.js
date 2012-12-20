@@ -121,10 +121,10 @@ var MapsLib = {
       query: {
         from:   MapsLib.fusionTableId,
         select: MapsLib.locationColumn,
-        where:  whereClause,
-        styleId: 2,
-        templateId: 2
-      }
+        where:  whereClause
+      },
+      styleId: 2,
+      templateId: 2
     });
     MapsLib.searchrecords.setMap(map);
     MapsLib.getCount(whereClause);
