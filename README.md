@@ -122,13 +122,18 @@ For more information, see [Working with styles](https://developers.google.com/fu
 
 Email me! [Derek Eder](mailto:derek.eder+git@gmail.com)
 
+## Contributors 
+
+* [Derek Eder](http://derekeder.com) - primary contributor
+* [Chris Keller](http://www.chrislkeller.com/) - [recenter map on resize](https://github.com/derekeder/FusionTable-Map-Template/pull/11)
+
 ## Note on Patches/Pull Requests
  
 * Fork the project.
 * Make your feature addition or bug fix.
 * Commit and send me a pull request.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2012 Derek Eder. Released under the MIT License.
 
