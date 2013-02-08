@@ -23,3 +23,5 @@ a { color: #4B58A6; }
 .filter-blue { background-color: #5781FC; }
 .filter-purple { background-color: #7C54FB; }
 .filter-red { background-color: #FB6353; }
+
+canvas {-ms-touch-action: double-tap-zoom;}
