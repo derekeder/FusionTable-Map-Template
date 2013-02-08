@@ -126,6 +126,7 @@ Email me! [Derek Eder](mailto:derek.eder+git@gmail.com)
 
 * [Derek Eder](http://derekeder.com) - primary contributor
 * [Chris Keller](http://www.chrislkeller.com/) - [recenter map on resize](https://github.com/derekeder/FusionTable-Map-Template/pull/11)
+* [nb-ofs](https://github.com/nb-ofs) - [Windows 8 touch screen ability](https://github.com/derekeder/FusionTable-Map-Template/pull/14)
 
 ## Note on Patches/Pull Requests
  
