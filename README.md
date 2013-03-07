@@ -101,7 +101,7 @@ This is due to a recent change to the FusionTablesLayer and only effects tables 
 
 When you create custom styles for the first time, the styleId will be 2. For custom info window layouts, the first templateId will also be 2. The __latest version of this template has these defaults set__, but in case you want to add it to an existing project, use the following code:
 
-<pre>
+```javascript
    MapsLib.searchrecords = new google.maps.FusionTablesLayer({
      query: {
        from:   MapsLib.fusionTableId,
@@ -111,7 +111,7 @@ When you create custom styles for the first time, the styleId will be 2. For cus
      styleId: 2,
      templateId: 2
    });
-</pre>
+```
 
 For reference, styleId 1 is the default look - usually small red dots or red polygons. templateId 1 is the default info window that just shows the first few columns in your table.
 
