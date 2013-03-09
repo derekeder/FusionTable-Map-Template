@@ -56,6 +56,8 @@ Take a look at the [wiki](https://github.com/derekeder/FusionTable-Map-Template/
 * [Radio buttons](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-radiobuttons)
 * [Text searches](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-textsearches)
 * [Results lists](https://github.com/derekeder/FusionTable-Map-Template/wiki/List-search-results)
+* [Text searches](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-textsearches)
+* [Sliders](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-sliders)
 
 
 ## Resources
