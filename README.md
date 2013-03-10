@@ -58,7 +58,7 @@ Take a look at the [wiki](https://github.com/derekeder/FusionTable-Map-Template/
 * [Results lists](https://github.com/derekeder/FusionTable-Map-Template/wiki/List-search-results)
 * [Text searches](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-textsearches)
 * [Sliders](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-sliders)
-
+* [Date sliders](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-date-sliders)
 
 ## Resources
 
