@@ -261,4 +261,10 @@ var MapsLib = {
     if (text == undefined) return '';
   	return decodeURIComponent(text);
   }
+  
+  //-----custom functions-------
+  // NOTE: if you add custom functions, make sure to append each one with a comma, except for the last one.
+  // This also applies to the convertToPlainString function above
+  
+  //-----end of custom functions-------
 }
