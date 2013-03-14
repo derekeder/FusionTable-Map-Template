@@ -68,6 +68,10 @@ var MapsLib = {
     else $("#search_radius").val(MapsLib.searchRadius);
     $(":checkbox").attr("checked", "checked");
     $("#result_count").hide();
+    
+    //-----custom initializers-------
+    
+    //-----end of custom initializers-------
 
     //run the default search
     MapsLib.doSearch();
