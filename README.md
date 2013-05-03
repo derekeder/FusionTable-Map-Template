@@ -119,6 +119,19 @@ For reference, styleId 1 is the default look - usually small red dots or red pol
 
 For more information, see [Working with styles](https://developers.google.com/fusiontables/docs/v1/using#WorkingStyles) and [Working with templates](https://developers.google.com/fusiontables/docs/v1/using#WorkingInfoWindows) in the Fusion Tables documentation.
 
+### I want to display custom icons on my map
+
+By default, Fusion Tables only provides 10 (5 large and 5 small) marker icons. 
+
+<img src="http://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0" alt="small red map dot" title="small red map dot" width="9" height="9">&nbsp;<img src="http://storage.googleapis.com/support-kms-prod/SNP_2752063_en_v0" alt="small yellow map dot" title="small yellow map dot" width="9" height="9">&nbsp;<img src="http://storage.googleapis.com/support-kms-prod/SNP_2752129_en_v0" alt="small green map dot" title="small green map dot" width="9" height="9">&nbsp;<img src="http://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0" alt="small blue map dot" title="small blue map dot" width="9" height="9">&nbsp;<img src="http://storage.googleapis.com/support-kms-prod/SNP_2752264_en_v0" alt="small purple map dot" title="small purple map dot" width="9" height="9">&nbsp;<img alt="large_red" src="http://chart.googleapis.com/chart?chst=d_map_pin_letter&amp;chld=|FF0000">&nbsp;<img alt="large_yellow" src="http://chart.googleapis.com/chart?chst=d_map_pin_letter&amp;chld=|FFFF00">&nbsp;<img alt="large_green" src="http://chart.googleapis.com/chart?chst=d_map_pin_letter&amp;chld=|00FF00">&nbsp;<img alt="large_blue" src="http://chart.googleapis.com/chart?chst=d_map_pin_letter&amp;chld=|6699FF">&nbsp;<img alt="large_purple" src="http://chart.googleapis.com/chart?chst=d_map_pin_letter&amp;chld=|9933FF">
+
+From my understanding, this is for performance reasons (the map and icon tiles are cached). There are two ways to work around this:
+
+* Use some of the 200 additional icons provided by Google. [This page](http://support.google.com/fusiontables/answer/2679986?hl=en) gives a good tutorial.
+* Use the Fusion Tables API to fetch your data and then draw your own markers using the Google Maps v3 API. Take a look at [this example](https://code.google.com/p/gmaps-samples/source/browse/trunk/fusiontables/custom_markers.html?spec=svn2515&r=2515) (warning: more advanced programming ahead!)
+
+Google offers a list of about 200 additional icons (some of them are different colored small/large dots) that you can reference via adding an icon name column to your table. The instructions they provide are pretty good.
+
 ## Still can't figure it out or more detail needed?
 
 Email me! [Derek Eder](mailto:derek.eder+git@gmail.com)
@@ -137,6 +150,6 @@ Email me! [Derek Eder](mailto:derek.eder+git@gmail.com)
 
 ## Copyright
 
-Copyright (c) 2012 Derek Eder. Released under the MIT License.
+Copyright (c) 2013 Derek Eder. Released under the MIT License.
 
-See [LICENSE](https://github.com/derekeder/FusionTable-Map-Template/wiki/License) for details 
+See [LICENSE](https://github.com/derekeder/FusionTable-Map-Template/blob/master/LICENSE) for details 
