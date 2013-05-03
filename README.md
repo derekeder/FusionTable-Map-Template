@@ -127,8 +127,15 @@ By default, Fusion Tables only provides 10 (5 large and 5 small) marker icons.
 
 From my understanding, this is for performance reasons (the map and icon tiles are cached). However, there are two ways to work around it:
 
-* Use some of the 200 additional icons provided by Google. [This page](http://support.google.com/fusiontables/answer/2679986?hl=en) gives a good tutorial.
-* Use the Fusion Tables API to fetch your data and then draw your own markers using the Google Maps v3 API. Take a look at [this example](https://code.google.com/p/gmaps-samples/source/browse/trunk/fusiontables/custom_markers.html?spec=svn2515&r=2515) (warning: more advanced programming ahead!)
+1. Use some of the 200 additional icons provided by Google. [This page](http://support.google.com/fusiontables/answer/2679986?hl=en) gives a good tutorial.
+1. Use the Fusion Tables API to fetch your data and then draw your own markers using the Google Maps v3 API. Take a look at [this example](https://code.google.com/p/gmaps-samples/source/browse/trunk/fusiontables/custom_markers.html?spec=svn2515&r=2515) (warning: more advanced programming ahead!)
+
+### My map works, but the results count returns 0
+
+The results counter uses the Fusion Tables API, which requires an API key and some specific sharing permissions. Try the following in this order:
+
+1. Make sure you set fusionTableId to a valid API key. It should look something like `1m4Ez9xyTGfY2CU6O-UgEcPzlS0rnzLU93e4Faa0`. To get a new one, go to the [Google API Console](https://code.google.com/apis/console/)
+1. Make sure that 'Allow Downloads' is checked for your Fusion Table (File => About this table => Edit table information)
 
 ## Still can't figure it out or more detail needed?
 
