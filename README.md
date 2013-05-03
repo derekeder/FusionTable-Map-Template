@@ -132,7 +132,7 @@ From my understanding, this is for performance reasons (the map and icon tiles a
 
 ## Still can't figure it out or more detail needed?
 
-Email me! [Derek Eder](mailto:derek.eder+git@gmail.com)
+[Email me!](mailto:derek.eder+git@gmail.com) Please make sure to provide a link to your current project for easier troubleshooting. I try to respond within a week or so.
 
 ## Contributors 
 
