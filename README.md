@@ -158,3 +158,5 @@ The results counter uses the Fusion Tables API, which requires an API key and so
 Copyright (c) 2013 Derek Eder. Released under the MIT License.
 
 See [LICENSE](https://github.com/derekeder/FusionTable-Map-Template/blob/master/LICENSE) for details 
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/40715476bc0accb73f0b24388fe08cbc "githalytics.com")](http://githalytics.com/derekeder/FusionTable-Map-Template)
