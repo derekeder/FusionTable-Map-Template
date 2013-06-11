@@ -41,7 +41,7 @@ Follow the steps below and you'll be in business with your own map.
    1. __map_centroid__ to the lat/long you want your map to center on
    1. __locationScope__ to the area you want to limit searches to (set to 'Chicago' by default)
    1. __recordName__ and __recordNamePlural__ to the name of the items in your Fusion Table
-1. Add/modify additional checkbox filters to maps_lib.js. This will depend on the data you are trying to map. Take a look at the [wiki](https://github.com/derekeder/FusionTable-Map-Template/wiki) for [filter examples](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples) and [list views](https://github.com/derekeder/FusionTable-Map-Template/wiki/List-search-results) to get started. You can also take a look at these examples:
+1. Add/modify additional filters to maps_lib.js. This will depend on the data you are trying to map. Take a look at the [wiki](https://github.com/derekeder/FusionTable-Map-Template/wiki) for [filter examples](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples) and [list views](https://github.com/derekeder/FusionTable-Map-Template/wiki/List-search-results) to get started. You can also take a look at these examples:
    * [Connect Chicago Locator](http://locations.weconnectchicago.org)
    * [Chicago Buildings](http://chicagobuildings.org)
    * [Chicago Bike Crash Reports](http://derekeder.com/maps/chicago-bike-crash-reports/index.html)
