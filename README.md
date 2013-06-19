@@ -31,7 +31,7 @@ This template is now supports the Fusion Tables v1 API. For more info on this, s
 Follow the steps below and you'll be in business with your own map.
 
 1. Create a Fusion Table ([here's a great tutorial](http://support.google.com/fusiontables/bin/answer.py?hl=en&answer=184641))
-1. Make sure at least one column is set to a type of Location and that FT has geocoded it
+1. Make sure at least one column is set to a type of Location and that Fusion Tables has geocoded it
 1. Set the Fusion Table to be publicly visible (via the Share button in the upper right) and make sure 'Allow Download' is enabled.
 1. Turn on the Fusion Tables API in the [Google APIs Console](https://code.google.com/apis/console/)
 1. In source/maps_lib.js, set your 
