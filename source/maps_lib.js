@@ -10,6 +10,9 @@
  *
  */
 
+// Enable the visual refresh
+google.maps.visualRefresh = true;
+
 var MapsLib = MapsLib || {};
 var MapsLib = {
 
