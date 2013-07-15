@@ -140,7 +140,9 @@ The results counter uses the Fusion Tables API, which requires an API key and so
 
 ## Still can't figure it out or more detail needed?
 
-[Email me!](mailto:derek.eder+git@gmail.com) Please make sure to provide a link to your current project for easier troubleshooting. I try to respond within a week or so.
+If you're stuck and just need a little guidance, [email me](mailto:derek.eder+git@gmail.com). Please make sure to provide a link to your current project for easier troubleshooting. I try to respond within a week or so.
+
+If your request is more involved and will require more of my time, [contact me](mailto:info@datamade.us) at [DataMade](http://datamade.us) and I can assist you at an hourly rate.
 
 ## Contributors 
 
