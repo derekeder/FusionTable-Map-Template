@@ -140,21 +140,23 @@ The results counter uses the Fusion Tables API, which requires an API key and so
 
 ## Still can't figure it out or more detail needed?
 
-If you're stuck and just need a little guidance, [email me](mailto:derek.eder+git@gmail.com). Please make sure to provide a link to your current project for easier troubleshooting. I try to respond within a week or so.
+1. Check out some [previously answered questions on Stack Overflow](http://stackoverflow.com/search?q=%5Bgoogle-fusion-tables%5D+template+derek). Someone may already have a solution for you.
+1. If you're stuck and just need some guidance, [post your question to Stack Overflow](http://stackoverflow.com/questions/tagged/google-fusion-tables). I or someone from the community will do our best to answer your question.
+1. If you would like to build a map that's a little more complicated or you need some help, [contact me](mailto:info@datamade.us) at [DataMade](http://datamade.us) and I can assist you at an hourly rate.
 
-If your request is more involved and will require more of my time, [contact me](mailto:info@datamade.us) at [DataMade](http://datamade.us) and I can assist you at an hourly rate.
+## Bug fixes and pull requests
+
+Notice a bug or want to add a feature? [Open an issue](https://github.com/derekeder/FusionTable-Map-Template/issues) or submit a pull request like so:
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Commit and send me a pull request.
 
 ## Contributors 
 
 * [Derek Eder](http://derekeder.com) - primary contributor
 * [Chris Keller](http://www.chrislkeller.com/) - [recenter map on resize](https://github.com/derekeder/FusionTable-Map-Template/pull/11)
 * [nb-ofs](https://github.com/nb-ofs) - [Windows 8 touch screen ability](https://github.com/derekeder/FusionTable-Map-Template/pull/14), [Google Maps Visual Refresh](https://github.com/derekeder/FusionTable-Map-Template/pull/18), [Noscript message](https://github.com/derekeder/FusionTable-Map-Template/pull/19)
-
-## Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Commit and send me a pull request.
 
 ## Copyright
 
