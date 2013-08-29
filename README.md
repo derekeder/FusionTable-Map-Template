@@ -1,9 +1,9 @@
 # Fusion Table Searchable Map Template
 You want to put your data on a searchable, filterable map. This is a free, open source tool to help you do it.
 
-[![Searchable Map Template screenshot](http://derekeder.com/images/map-template-screenshot.png)](http://derekeder.com/searchable_map_template/demo/index.html)
+[![Searchable Map Template screenshot](http://derekeder.com/images/map-template-screenshot.png)](http://derekeder.github.io/FusionTable-Map-Template/)
 
-### [See the working demo &raquo;](http://derekeder.com/searchable_map_template/demo/index.html)
+### [See the working demo &raquo;](http://derekeder.github.io/FusionTable-Map-Template/d)
 
 ## Features
 
