@@ -15,11 +15,22 @@
     <![endif]-->
   </head>
   <body>
-    <div class='navbar'>
-      <div class='navbar-inner'>
-        <div class='container'>
-          <a class='navbar-brand' href='/'>Searchable Map Template</a>
+    <div class='navbar navbar-default navbar-static-top'>
+      <div class='container'>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class='navbar-brand' href='index.html'>Searchable Map Template</a>
         </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class='active'><a href="index.html">Map</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
     </div>
     <div class='container'>
@@ -66,8 +77,14 @@
               </div>
             </div>
             <br />
-            <input class='btn btn-primary' id='search' type='button' value='Search' />
-            <button class='btn btn-default' id='reset'>Reset</button>
+            <a class='btn btn-primary' id='search'>
+              <i class='glyphicon glyphicon-search'></i>
+              Search
+            </a>
+            <a class='btn btn-default' id='reset'>
+              <i class='glyphicon glyphicon-repeat'></i>
+              Reset
+            </a>
           </div>
           <div class='alert alert-info' id='result_box' ><strong id='result_count'></strong></div>
         </div>
