@@ -1,5 +1,5 @@
 # Fusion Table Searchable Map Template
-You want to put your data on a searchable, filterable map. This is a free, open source tool to help you do it.
+You want to put your data on a searchable, filterable map. This is a free, open source template to help you do it.
 
 [![Searchable Map Template screenshot](http://derekeder.com/images/map-template-screenshot.png)](http://derekeder.github.io/FusionTable-Map-Template/)
 
@@ -21,7 +21,7 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 * [Google Fusion Tables](http://www.google.com/fusiontables/Home)
 * [Google Maps API V3](https://developers.google.com/maps/documentation/javascript)
 * [jQuery](http://jquery.org)
-* [jQuery Address](http://www.asual.com/jquery/address)
+* [jQuery Address](https://github.com/asual/jquery-address)
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap)
 
 ## Setup
