@@ -3,7 +3,7 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 
 [![Searchable Map Template screenshot](http://derekeder.com/images/map-template-screenshot.png)](http://derekeder.github.io/FusionTable-Map-Template/)
 
-### [See the working demo &raquo;](http://derekeder.github.io/FusionTable-Map-Template/d)
+### [See the working demo &raquo;](http://derekeder.github.io/FusionTable-Map-Template/)
 
 ## Features
 
