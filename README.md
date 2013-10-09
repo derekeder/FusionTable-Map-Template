@@ -24,6 +24,11 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 * [jQuery Address](https://github.com/asual/jquery-address)
 * [Bootstrap 3](http://twitter.github.com/bootstrap)
 
+## Releases
+
+* [v 1.2](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.2) - Bootstrap 3, jQuery 1.10.2, jQuery Address 1.6
+* [v 1.1](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.1) - Bootstrap 2.0.3, jQuery 1.7.1, jQuery Address 1.4 
+
 ## Setup
 
 This template is now supports the Fusion Tables v1 API. For more info on this, see the [migration guide](https://developers.google.com/fusiontables/docs/v1/migration_guide).
