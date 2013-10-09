@@ -22,7 +22,7 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 * [Google Maps API V3](https://developers.google.com/maps/documentation/javascript)
 * [jQuery](http://jquery.org)
 * [jQuery Address](https://github.com/asual/jquery-address)
-* [Twitter Bootstrap](http://twitter.github.com/bootstrap)
+* [Bootstrap 3](http://twitter.github.com/bootstrap)
 
 ## Setup
 
