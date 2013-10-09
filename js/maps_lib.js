@@ -39,8 +39,8 @@ var MapsLib = {
 
   searchRadius:       805,            //in meters ~ 1/2 mile
   defaultZoom:        11,             //zoom level when map is loaded (bigger is more zoomed in)
-  addrMarkerImage: 'http://derekeder.com/images/icons/blue-pushpin.png',
-  currentPinpoint: null,
+  addrMarkerImage:    'images/blue-pushpin.png',
+  currentPinpoint:    null,
 
   initialize: function() {
     $( "#result_count" ).html("");
@@ -70,7 +70,7 @@ var MapsLib = {
     if (loadRadius != "") $("#search_radius").val(loadRadius);
     else $("#search_radius").val(MapsLib.searchRadius);
     $(":checkbox").prop("checked", "checked");
-    $("#result_count").hide();
+    $("#result_box").hide();
     
     //-----custom initializers-------
     
@@ -236,10 +236,10 @@ var MapsLib = {
     var name = MapsLib.recordNamePlural;
     if (numRows == 1)
     name = MapsLib.recordName;
-    $( "#result_count" ).fadeOut(function() {
+    $( "#result_box" ).fadeOut(function() {
         $( "#result_count" ).html(MapsLib.addCommas(numRows) + " " + name + " found");
       });
-    $( "#result_count" ).fadeIn();
+    $( "#result_box" ).fadeIn();
   },
 
   addCommas: function(nStr) {
