@@ -26,8 +26,12 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 
 ## Releases
 
-* [v 1.2](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.2) - Bootstrap 3, jQuery 1.10.2, jQuery Address 1.6
-* [v 1.1](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.1) - Bootstrap 2.0.3, jQuery 1.7.1, jQuery Address 1.4 
+We've upgraded to Bootstrap 3! The HTML markup is slightly different in this version, so if you still want to use Bootstrap 2, you can grab that version too. 
+
+If you're upgrading, check out the [migration guide](http://getbootstrap.com/getting-started/#migration).
+
+* [v 1.2](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.2) - [Bootstrap 3](http://getbootstrap.com/), jQuery 1.10.2, jQuery Address 1.6
+* [v 1.1](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.1) - [Bootstrap 2.0.3](http://getbootstrap.com/2.3.2/), jQuery 1.7.1, jQuery Address 1.4 
 
 ## Setup
 
