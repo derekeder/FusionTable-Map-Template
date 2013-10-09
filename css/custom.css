@@ -1,4 +1,5 @@
 a { color: #4B58A6; }
+a:hover { color: #4B58A6; }
 
 #map_canvas img {
   max-width: none;
