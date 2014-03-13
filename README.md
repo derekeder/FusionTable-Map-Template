@@ -167,9 +167,16 @@ Notice a bug or want to add a feature? [Open an issue](https://github.com/dereke
 * [Chris Keller](http://www.chrislkeller.com/) - [recenter map on resize](https://github.com/derekeder/FusionTable-Map-Template/pull/11)
 * [nb-ofs](https://github.com/nb-ofs) - [Windows 8 touch screen ability](https://github.com/derekeder/FusionTable-Map-Template/pull/14), [Google Maps Visual Refresh](https://github.com/derekeder/FusionTable-Map-Template/pull/18), [Noscript message](https://github.com/derekeder/FusionTable-Map-Template/pull/19)
 
-## Copyright
+## Copyright and attribution
 
-Copyright (c) 2013 Derek Eder. Released under the MIT License.
+Copyright (c) 2014 Derek Eder. Released under the MIT License.
+
+If you use this template, please provide the following attribution in the footer: 
+
+```html
+<a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> 
+by <a href='http://derekeder.com'>Derek Eder</a>.
+```
 
 See [LICENSE](https://github.com/derekeder/FusionTable-Map-Template/blob/master/LICENSE) for details 
 
