@@ -43,7 +43,7 @@ Follow the steps below and you'll be in business with your own map.
 1. Make sure at least one column is set to a type of Location and that Fusion Tables has geocoded it
 1. Set the Fusion Table to be publicly visible (via the Share button in the upper right) and make sure 'Allow Download' is enabled.
 1. Turn on the Fusion Tables API in the [Google APIs Console](https://code.google.com/apis/console/)
-1. In source/maps_lib.js, set your 
+1. In js/maps_lib.js, set your 
    1. __fusionTableId__ to the encrypted ID of your Fusion Table. __Note__: Google is phasing out numeric IDs soon
    1. __googleApiKey__ to the API key from your [Google API Console](https://code.google.com/apis/console/)
    1. __locationColumn__ to the name of your location column in your Fusion Table
@@ -55,7 +55,7 @@ Follow the steps below and you'll be in business with your own map.
    * [Chicago Buildings](http://chicagobuildings.org)
    * [Chicago Bike Crash Reports](http://derekeder.com/maps/chicago-bike-crash-reports/index.html)
    * [Chicago TIF Projects](http://derekeder.com/maps/chicago-tif/index.html)
-1. Upload this map and all the supporting files (source and styles folders) to your site 
+1. Upload this map and all the supporting files (css, fonts, images and js folders) to your site 
 
 ## Custom Filters and Views
 
@@ -167,9 +167,16 @@ Notice a bug or want to add a feature? [Open an issue](https://github.com/dereke
 * [Chris Keller](http://www.chrislkeller.com/) - [recenter map on resize](https://github.com/derekeder/FusionTable-Map-Template/pull/11)
 * [nb-ofs](https://github.com/nb-ofs) - [Windows 8 touch screen ability](https://github.com/derekeder/FusionTable-Map-Template/pull/14), [Google Maps Visual Refresh](https://github.com/derekeder/FusionTable-Map-Template/pull/18), [Noscript message](https://github.com/derekeder/FusionTable-Map-Template/pull/19)
 
-## Copyright
+## Copyright and attribution
 
-Copyright (c) 2013 Derek Eder. Released under the MIT License.
+Copyright (c) 2014 Derek Eder. Released under the MIT License.
+
+If you use this template, please provide the following attribution in the footer: 
+
+```html
+<a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> 
+by <a href='http://derekeder.com'>Derek Eder</a>.
+```
 
 See [LICENSE](https://github.com/derekeder/FusionTable-Map-Template/blob/master/LICENSE) for details 
 
