@@ -200,11 +200,20 @@ var MapsLib = {
       MapsLib.searchRadiusCircle = new google.maps.Circle(circleOptions);
   },
 
-  query: function(selectColumns, whereClause, callback) {
+  query: function(selectColumns, whereClause, groupBy, orderBy, callback) {
     var queryStr = [];
     queryStr.push("SELECT " + selectColumns);
     queryStr.push(" FROM " + MapsLib.fusionTableId);
-    queryStr.push(" WHERE " + whereClause);
+    
+    // where, group and order clauses are optional
+    if (whereClause != "" && whereClause != null)
+      queryStr.push(" WHERE " + whereClause);
+
+    if (groupBy != "" && groupBy != null)
+      queryStr.push(" GROUP BY " + groupBy);
+
+     if (orderBy != "" && orderBy != null)
+      queryStr.push(" ORDER BY " + orderBy);
 
     var sql = encodeURIComponent(queryStr.join(" "));
     $.ajax({url: "https://www.googleapis.com/fusiontables/v1/query?sql="+sql+"&callback="+callback+"&key="+MapsLib.googleApiKey, dataType: "jsonp"});
@@ -224,7 +233,7 @@ var MapsLib = {
 
   getCount: function(whereClause) {
     var selectColumns = "Count()";
-    MapsLib.query(selectColumns, whereClause,"MapsLib.displaySearchCount");
+    MapsLib.query(selectColumns, whereClause, "", "", "MapsLib.displaySearchCount");
   },
 
   displaySearchCount: function(json) {
