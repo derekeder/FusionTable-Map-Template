@@ -30,6 +30,7 @@ We've upgraded to [Bootstrap 3](http://getbootstrap.com/)! The HTML markup is sl
 
 If you're upgrading, check out the [Bootstrap migration guide](http://getbootstrap.com/getting-started/#migration).
 
+* [v 1.3](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.3) - Bootstrap 3.2, more robust query function, dynamic zoom
 * [v 1.2](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.2) - Bootstrap 3, jQuery 1.10.2, jQuery Address 1.6
 * [v 1.1](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.1) - Bootstrap 2.0.3, jQuery 1.7.1, jQuery Address 1.4 
 
