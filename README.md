@@ -45,7 +45,7 @@ Follow the steps below and you'll be in business with your own map.
 1. Set the Fusion Table to be publicly visible (via the Share button in the upper right) and make sure 'Allow Download' is enabled.
 1. Turn on the Fusion Tables API
    1. Go to the [Google APIs Console](https://code.google.com/apis/console/)
-   2. Click 'Enable an API'
+   2. Click 'Enable an API' and set __Fusion Tables API__ to 'On'
    3. On the Credentials page, create a new __Public API access__ key
    4. Select __Browser key__
    5. Leave the ACCEPT REQUESTS FROM THESE HTTP REFERERS __blank__ and click __Create__
