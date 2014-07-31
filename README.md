@@ -43,7 +43,12 @@ Follow the steps below and you'll be in business with your own map.
 1. Create a Fusion Table ([here's a great tutorial](http://support.google.com/fusiontables/bin/answer.py?hl=en&answer=184641))
 1. Make sure at least one column is set to a type of Location and that Fusion Tables has geocoded it
 1. Set the Fusion Table to be publicly visible (via the Share button in the upper right) and make sure 'Allow Download' is enabled.
-1. Turn on the Fusion Tables API in the [Google APIs Console](https://code.google.com/apis/console/)
+1. Turn on the Fusion Tables API
+   1. Go to the [Google APIs Console](https://code.google.com/apis/console/)
+   2. Click 'Enable an API'
+   3. On the Credentials page, create a new __Public API access__ key
+   4. Select __Browser key__
+   5. Leave the ACCEPT REQUESTS FROM THESE HTTP REFERERS __blank__ and click __Create__
 1. In js/maps_lib.js, set your 
    1. __fusionTableId__ to the encrypted ID of your Fusion Table. __Note__: Google is phasing out numeric IDs soon
    1. __googleApiKey__ to the API key from your [Google API Console](https://code.google.com/apis/console/)
