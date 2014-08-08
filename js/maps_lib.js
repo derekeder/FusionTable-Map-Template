@@ -20,7 +20,7 @@ var MapsLib = {
   //Using the v1 Fusion Tables API. See https://developers.google.com/fusiontables/docs/v1/migration_guide for more info
 
   //the encrypted Table ID of your Fusion Table (found under File => About)
-  //NOTE: numeric IDs will be depricated soon
+  //NOTE: numeric IDs will be deprecated soon
   fusionTableId:      "1m4Ez9xyTGfY2CU6O-UgEcPzlS0rnzLU93e4Faa0",
 
   //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/

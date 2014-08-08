@@ -36,7 +36,7 @@ If you're upgrading, check out the [Bootstrap migration guide](http://getbootstr
 
 ## Setup
 
-This template is now supports the Fusion Tables v1 API. For more info on this, see the [migration guide](https://developers.google.com/fusiontables/docs/v1/migration_guide).
+This template now supports the Fusion Tables v1 API. For more info on this, see the [migration guide](https://developers.google.com/fusiontables/docs/v1/migration_guide).
 
 Follow the steps below and you'll be in business with your own map.
 
