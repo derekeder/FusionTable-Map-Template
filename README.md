@@ -49,6 +49,7 @@ Follow the steps below and you'll be in business with your own map.
    3. On the Credentials page, create a new __Public API access__ key
    4. Select __Browser key__
    5. Leave the ACCEPT REQUESTS FROM THESE HTTP REFERERS __blank__ and click __Create__
+   6. Copy the API KEY, which should look something like `AIzaSyA3FQFrNr5W2OEVmuENqhb2MBB2JabdaOY`
 1. In js/maps_lib.js, set your 
    1. __fusionTableId__ to the encrypted ID of your Fusion Table. __Note__: Google is phasing out numeric IDs soon
    1. __googleApiKey__ to the API key from your [Google API Console](https://code.google.com/apis/console/)
