@@ -160,6 +160,9 @@ The results counter uses the Fusion Tables API, which requires an API key and so
 1. Make sure you set fusionTableId to a valid API key. It should look something like `1m4Ez9xyTGfY2CU6O-UgEcPzlS0rnzLU93e4Faa0`. To get a new one, go to the [Google API Console](https://code.google.com/apis/console/)
 1. Make sure that 'Allow Downloads' is checked for your Fusion Table (File => About this table => Edit table information)
 
+## Still can't figure it out or more detail needed?
+Ask for help on our [Fusion Table Map Template Google Group](https://groups.google.com/forum/#!forum/fusion-table-map-template)!
+
 ## Bug fixes and pull requests
 
 Notice a bug or want to add a feature? [Open an issue](https://github.com/derekeder/FusionTable-Map-Template/issues) or submit a pull request like so:
