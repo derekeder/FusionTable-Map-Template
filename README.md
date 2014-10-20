@@ -24,6 +24,12 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 * [jQuery Address](https://github.com/asual/jquery-address)
 * [Bootstrap 3](http://twitter.github.com/bootstrap)
 
+
+## Community
+There's a [public Google Group](https://groups.google.com/forum/#!forum/fusion-table-map-template) for anyone who wants to or has used the Searchable Map Template. Join the growing community of map makers to learn, share and benefit from each other!
+
+[Join the Fusion Table Map Template Google Group &raquo;](https://groups.google.com/forum/#!forum/fusion-table-map-template)
+
 ## Releases
 
 We've upgraded to [Bootstrap 3](http://getbootstrap.com/)! The HTML markup is slightly different in this version, so if you still want to use [Bootstrap 2](http://getbootstrap.com/2.3.2/), you can grab that version too. 
@@ -153,12 +159,6 @@ The results counter uses the Fusion Tables API, which requires an API key and so
 
 1. Make sure you set fusionTableId to a valid API key. It should look something like `1m4Ez9xyTGfY2CU6O-UgEcPzlS0rnzLU93e4Faa0`. To get a new one, go to the [Google API Console](https://code.google.com/apis/console/)
 1. Make sure that 'Allow Downloads' is checked for your Fusion Table (File => About this table => Edit table information)
-
-## Still can't figure it out or more detail needed?
-
-1. Check out some [previously answered questions on Stack Overflow](http://stackoverflow.com/search?q=%5Bgoogle-fusion-tables%5D+template+derek). Someone may already have a solution for you.
-1. If you're stuck and just need some guidance, [post your question to Stack Overflow](http://stackoverflow.com/questions/tagged/google-fusion-tables). I or someone from the community will do our best to answer your question.
-1. If you would like to build a map that's a little more complicated or you need some help, [contact me](mailto:info@datamade.us) at [DataMade](http://datamade.us) and I can assist you at an hourly rate.
 
 ## Bug fixes and pull requests
 
