@@ -216,23 +216,42 @@ var MapsLib = {
       MapsLib.searchRadiusCircle = new google.maps.Circle(circleOptions);
   },
 
-  query: function(selectColumns, whereClause, groupBy, orderBy, callback) {
+  query: function(selectColumns, whereClause, groupBy, orderBy, offset, limit, callback) {
     var queryStr = [];
     queryStr.push("SELECT " + selectColumns);
     queryStr.push(" FROM " + MapsLib.fusionTableId);
     
     // where, group and order clauses are optional
-    if (whereClause != "" && whereClause != null)
+    if (whereClause != "" && whereClause != null) {
       queryStr.push(" WHERE " + whereClause);
+    }
 
-    if (groupBy != "" && groupBy != null)
+    if (groupBy != "" && groupBy != null) {
       queryStr.push(" GROUP BY " + groupBy);
+    }
 
-     if (orderBy != "" && orderBy != null)
+    if (orderBy != "" && orderBy != null) {
       queryStr.push(" ORDER BY " + orderBy);
+    }
+
+    if (offset !== "" && offset !== null) {
+      queryStr.push(" OFFSET " + offset);
+    }
+
+    if (limit !== "" && limit !== null) {
+      queryStr.push(" LIMIT " + limit);
+    }
+
+    
 
     var sql = encodeURIComponent(queryStr.join(" "));
-    $.ajax({url: "https://www.googleapis.com/fusiontables/v1/query?sql="+sql+"&callback="+callback+"&key="+MapsLib.googleApiKey, dataType: "jsonp"});
+    $.ajax({
+      url: "https://www.googleapis.com/fusiontables/v1/query?sql="+sql+"&key="+MapsLib.googleApiKey,
+      dataType: "json"
+    }).done(function (response) {
+      if (callback) callback(response);
+    });
+
   },
 
   handleError: function(json) {
@@ -249,7 +268,9 @@ var MapsLib = {
 
   getCount: function(whereClause) {
     var selectColumns = "Count()";
-    MapsLib.query(selectColumns, whereClause, "", "", "MapsLib.displaySearchCount");
+    MapsLib.query(selectColumns, whereClause, "", "", "", "", function(response) {
+      MapsLib.displaySearchCount(response);
+    });
   },
 
   displaySearchCount: function(json) {
