@@ -39,7 +39,7 @@ var MapsLib = {
 
   searchRadius:       805,            //in meters ~ 1/2 mile
   defaultZoom:        11,             //zoom level when map is loaded (bigger is more zoomed in)
-  addrMarkerImage:    'images/blue-pushpin.png',
+  addrMarkerImage:    '', // set to empty '' to hide searched address marker
   currentPinpoint:    null,
 
   initialize: function() {
@@ -104,12 +104,12 @@ var MapsLib = {
           map.setCenter(MapsLib.currentPinpoint);
           
           // set zoom level based on search radius
-          if (MapsLib.searchRadius      >= 1610000) map.setZoom(04); // 1,000 miles
-          else if (MapsLib.searchRadius >= 805000)  map.setZoom(05); // 500 miles
-          else if (MapsLib.searchRadius >= 402500)  map.setZoom(06); // 250 miles
-          else if (MapsLib.searchRadius >= 161000)  map.setZoom(07); // 100 miles
-          else if (MapsLib.searchRadius >= 80500)   map.setZoom(08); // 50 miles
-          else if (MapsLib.searchRadius >= 40250)   map.setZoom(09); // 25 miles
+          if (MapsLib.searchRadius      >= 1610000) map.setZoom(4); // 1,000 miles
+          else if (MapsLib.searchRadius >= 805000)  map.setZoom(5); // 500 miles
+          else if (MapsLib.searchRadius >= 402500)  map.setZoom(6); // 250 miles
+          else if (MapsLib.searchRadius >= 161000)  map.setZoom(7); // 100 miles
+          else if (MapsLib.searchRadius >= 80500)   map.setZoom(8); // 50 miles
+          else if (MapsLib.searchRadius >= 40250)   map.setZoom(9); // 25 miles
           else if (MapsLib.searchRadius >= 16100)   map.setZoom(11); // 10 miles
           else if (MapsLib.searchRadius >= 8050)    map.setZoom(12); // 5 miles
           else if (MapsLib.searchRadius >= 3220)    map.setZoom(13); // 2 miles
@@ -118,13 +118,15 @@ var MapsLib = {
           else if (MapsLib.searchRadius >= 400)     map.setZoom(16); // 1/4 mile
           else                                      map.setZoom(17);
 
-          MapsLib.addrMarker = new google.maps.Marker({
-            position: MapsLib.currentPinpoint,
-            map: map,
-            icon: MapsLib.addrMarkerImage,
-            animation: google.maps.Animation.DROP,
-            title:address
-          });
+          if (MapsLib.addrMarkerImage != '') {
+            MapsLib.addrMarker = new google.maps.Marker({
+              position: MapsLib.currentPinpoint,
+              map: map,
+              icon: MapsLib.addrMarkerImage,
+              animation: google.maps.Animation.DROP,
+              title:address
+            });
+          }
 
           whereClause += " AND ST_INTERSECTS(" + MapsLib.locationColumn + ", CIRCLE(LATLNG" + MapsLib.currentPinpoint.toString() + "," + MapsLib.searchRadius + "))";
 
