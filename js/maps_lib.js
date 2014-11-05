@@ -216,23 +216,43 @@ var MapsLib = {
       MapsLib.searchRadiusCircle = new google.maps.Circle(circleOptions);
   },
 
-  query: function(selectColumns, whereClause, groupBy, orderBy, callback) {
+  query: function(query_opts, callback) {
+    
     var queryStr = [];
-    queryStr.push("SELECT " + selectColumns);
+    queryStr.push("SELECT " + query_opts.select);
     queryStr.push(" FROM " + MapsLib.fusionTableId);
     
     // where, group and order clauses are optional
-    if (whereClause != "" && whereClause != null)
-      queryStr.push(" WHERE " + whereClause);
+    if (query_opts.where && query_opts.where != "") {
+      queryStr.push(" WHERE " + query_opts.where);
+    }
+    
+    if (query_opts.groupBy && query_opts.roupBy != "") {
+      queryStr.push(" GROUP BY " + query_opts.groupBy);
+    }
+    
+    if (query_opts.orderBy && query_opts.orderBy != "" ) {
+      queryStr.push(" ORDER BY " + query_opts.orderBy);
+    }
+    
+    if (query_opts.offset && query_opts.offset !== "") {
+      queryStr.push(" OFFSET " + query_opts.offset);
+    }
+    
+    if (query_opts.limit && query_opts.limit !== "") {
+      queryStr.push(" LIMIT " + query_opts.limit);
+    }
 
-    if (groupBy != "" && groupBy != null)
-      queryStr.push(" GROUP BY " + groupBy);
-
-     if (orderBy != "" && orderBy != null)
-      queryStr.push(" ORDER BY " + orderBy);
+    
 
     var sql = encodeURIComponent(queryStr.join(" "));
-    $.ajax({url: "https://www.googleapis.com/fusiontables/v1/query?sql="+sql+"&callback="+callback+"&key="+MapsLib.googleApiKey, dataType: "jsonp"});
+    $.ajax({
+      url: "https://www.googleapis.com/fusiontables/v1/query?sql="+sql+"&key="+MapsLib.googleApiKey,
+      dataType: "json"
+    }).done(function (response) {
+      if (callback) callback(response);
+    });
+
   },
 
   handleError: function(json) {
@@ -249,7 +269,12 @@ var MapsLib = {
 
   getCount: function(whereClause) {
     var selectColumns = "Count()";
-    MapsLib.query(selectColumns, whereClause, "", "", "MapsLib.displaySearchCount");
+    MapsLib.query({ 
+      select: selectColumns, 
+      where: whereClause
+    }, function(response) {
+      MapsLib.displaySearchCount(response);
+    });
   },
 
   displaySearchCount: function(json) {
