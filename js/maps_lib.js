@@ -216,30 +216,31 @@ var MapsLib = {
       MapsLib.searchRadiusCircle = new google.maps.Circle(circleOptions);
   },
 
-  query: function(selectColumns, whereClause, groupBy, orderBy, offset, limit, callback) {
+  query: function(query_opts, callback) {
+    
     var queryStr = [];
-    queryStr.push("SELECT " + selectColumns);
+    queryStr.push("SELECT " + query_opts.select);
     queryStr.push(" FROM " + MapsLib.fusionTableId);
     
     // where, group and order clauses are optional
-    if (whereClause != "" && whereClause != null) {
-      queryStr.push(" WHERE " + whereClause);
+    if (query_opts.where && query_opts.where != "") {
+      queryStr.push(" WHERE " + query_opts.where);
     }
-
-    if (groupBy != "" && groupBy != null) {
-      queryStr.push(" GROUP BY " + groupBy);
+    
+    if (query_opts.groupBy && query_opts.roupBy != "") {
+      queryStr.push(" GROUP BY " + query_opts.groupBy);
     }
-
-    if (orderBy != "" && orderBy != null) {
-      queryStr.push(" ORDER BY " + orderBy);
+    
+    if (query_opts.orderBy && query_opts.orderBy != "" ) {
+      queryStr.push(" ORDER BY " + query_opts.orderBy);
     }
-
-    if (offset !== "" && offset !== null) {
-      queryStr.push(" OFFSET " + offset);
+    
+    if (query_opts.offset && query_opts.offset !== "") {
+      queryStr.push(" OFFSET " + query_opts.offset);
     }
-
-    if (limit !== "" && limit !== null) {
-      queryStr.push(" LIMIT " + limit);
+    
+    if (query_opts.limit && query_opts.limit !== "") {
+      queryStr.push(" LIMIT " + query_opts.limit);
     }
 
     
@@ -268,7 +269,10 @@ var MapsLib = {
 
   getCount: function(whereClause) {
     var selectColumns = "Count()";
-    MapsLib.query(selectColumns, whereClause, "", "", "", "", function(response) {
+    MapsLib.query({ 
+      select: selectColumns, 
+      where: whereClause
+    }, function(response) {
       MapsLib.displaySearchCount(response);
     });
   },
