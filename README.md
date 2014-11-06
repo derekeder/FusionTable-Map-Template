@@ -86,9 +86,9 @@ Take a look at the [wiki](https://github.com/derekeder/FusionTable-Map-Template/
 
 If you want to embed the template in a page on your website, the easiest way to do it is with an iframe. We provide an iframe-optimized template for this purpose:
 
-[![Searchable Map Template iframe screenshot](https://raw.github.com/derekeder/FusionTable-Map-Template/master/images/searchable-map-template-iframe.png)](http://derekeder.github.io/FusionTable-Map-Template/index_iframe.html)
+[![Searchable Map Template iframe screenshot](https://raw.github.com/derekeder/FusionTable-Map-Template/master/images/searchable-map-template-iframe.png)](http://derekeder.github.io/FusionTable-Map-Template/iframe_test.html)
 
-[See the working demo &raquo;](http://derekeder.github.io/FusionTable-Map-Template/index_iframe.html)
+[See the working demo &raquo;](http://derekeder.github.io/FusionTable-Map-Template/iframe_test.html)
 
 This template works exactly the same way as the standard full screen template. All the javascript code is still contained in `js/maps_lib.js`.
 
@@ -96,14 +96,18 @@ To embed, you can use the following code on your page:
 
 ```html
 <iframe 
-  style="border-style: none; width: 900px; height: 950px;" 
+  style="border-style: none;" 
   src="/path/to/map-template/index_iframe.html" 
-  width="900" 
+  width="600" 
   height="950" >
 </iframe>
 ```
 
-You must explicitly set the size of the iframe, so midify the `height` and `width` attributes as necessary.
+You must explicitly set the size of the iframe, so midify the `height` and `width` attributes as necessary. You can also control the height of the map in `css/custom.css`:
+
+```css
+.iframe #map_canvas { height: 500px; }
+```
 
 
 ## Resources
