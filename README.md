@@ -3,7 +3,7 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 
 [![Searchable Map Template screenshot](https://raw.github.com/derekeder/FusionTable-Map-Template/master/images/searchable-map-template-v1.2.jpg)](http://derekeder.github.io/FusionTable-Map-Template/)
 
-### [See the working demo &raquo;](http://derekeder.github.io/FusionTable-Map-Template/)
+[See the working demo &raquo;](http://derekeder.github.io/FusionTable-Map-Template/)
 
 ## Features
 
@@ -88,14 +88,19 @@ If you want to embed the template in a page on your website, the easiest way to 
 
 [![Searchable Map Template screenshot](https://raw.github.com/derekeder/FusionTable-Map-Template/master/images/searchable-map-template-iframe.jpg)](http://derekeder.github.io/FusionTable-Map-Template/)
 
-### [See the working demo &raquo;](http://derekeder.github.io/FusionTable-Map-Template/iframe_index.html)
+[See the working demo &raquo;](http://derekeder.github.io/FusionTable-Map-Template/index_iframe.html)
 
 This template works exactly the same way as the standard full screen template. All the javascript code is still contained in `js/maps_lib.js`.
 
 To embed, you can use the following code on your page:
 
 ```html
-<iframe style="border-style: none; width: 900px; height: 950px;" src="/path/to/map-template/iframe_index.html" width="900" height="950" ></iframe>
+<iframe 
+  style="border-style: none; width: 900px; height: 950px;" 
+  src="/path/to/map-template/index_iframe.html" 
+  width="900" 
+  height="950" >
+</iframe>
 ```
 
 You must explicitly set the size of the iframe, so midify the `height` and `width` attributes as necessary.
