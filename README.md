@@ -7,7 +7,7 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 
 ## Features
 
-* clean, full screen layout
+* full screen and iframe templates (**new!**)
 * mobile and tablet friendly using responsive design
 * address search (with variable radius and geocomplete)
 * geolocation (find me!)
@@ -23,7 +23,6 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 * [jQuery](http://jquery.org)
 * [jQuery Address](https://github.com/asual/jquery-address)
 * [Bootstrap 3](http://twitter.github.com/bootstrap)
-
 
 ## Community
 There's a [public Google Group](https://groups.google.com/forum/#!forum/fusion-table-map-template) for anyone who wants to or has used the Searchable Map Template. Join the growing community of map makers to learn, share and benefit from each other!
@@ -82,6 +81,25 @@ Take a look at the [wiki](https://github.com/derekeder/FusionTable-Map-Template/
 * [Text searches](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-textsearches)
 * [Sliders](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-sliders)
 * [Date sliders](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-date-sliders)
+
+## iframe Template
+
+If you want to embed the template in a page on your website, the easiest way to do it is with an iframe. We provide an iframe-optimized template for this purpose:
+
+[![Searchable Map Template screenshot](https://raw.github.com/derekeder/FusionTable-Map-Template/master/images/searchable-map-template-iframe.jpg)](http://derekeder.github.io/FusionTable-Map-Template/)
+
+### [See the working demo &raquo;](http://derekeder.github.io/FusionTable-Map-Template/iframe_index.html)
+
+This template works exactly the same way as the standard full screen template. All the javascript code is still contained in `js/maps_lib.js`.
+
+To embed, you can use the following code on your page:
+
+```html
+<iframe style="border-style: none; width: 900px; height: 950px;" src="/path/to/map-template/iframe_index.html" width="900" height="950" ></iframe>
+```
+
+You must explicitly set the size of the iframe, so midify the `height` and `width` attributes as necessary.
+
 
 ## Resources
 
@@ -176,6 +194,7 @@ Notice a bug or want to add a feature? [Open an issue](https://github.com/dereke
 * [Derek Eder](http://derekeder.com) - primary contributor
 * [Chris Keller](http://www.chrislkeller.com/) - [recenter map on resize](https://github.com/derekeder/FusionTable-Map-Template/pull/11)
 * [nb-ofs](https://github.com/nb-ofs) - [Windows 8 touch screen ability](https://github.com/derekeder/FusionTable-Map-Template/pull/14), [Google Maps Visual Refresh](https://github.com/derekeder/FusionTable-Map-Template/pull/18), [Noscript message](https://github.com/derekeder/FusionTable-Map-Template/pull/19)
+* [Felipe Figueroa](https://github.com/amenadiel) - [Geocomplete update](https://github.com/derekeder/FusionTable-Map-Template/pull/36), [Updates to query function](https://github.com/derekeder/FusionTable-Map-Template/pull/38)
 
 ## Copyright and attribution
 
@@ -188,6 +207,4 @@ If you use this template, please provide the following attribution in the footer
 by <a href='http://derekeder.com'>Derek Eder</a>.
 ```
 
-See [LICENSE](https://github.com/derekeder/FusionTable-Map-Template/blob/master/LICENSE) for details 
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/40715476bc0accb73f0b24388fe08cbc "githalytics.com")](http://githalytics.com/derekeder/FusionTable-Map-Template)
+See [LICENSE](https://github.com/derekeder/FusionTable-Map-Template/blob/master/LICENSE) for more details.
