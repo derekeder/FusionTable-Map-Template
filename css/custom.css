@@ -5,11 +5,6 @@ a:hover { color: #4B58A6; }
   max-width: none;
 }
 
-.iframe #map_canvas { height: 500px; }
-.iframe #search_address_group { width: 300px; }
-.iframe .well { margin-bottom: 5px; }
-.iframe .alert { margin-top: 5px; }
-
 .filter-box { 
   height: 15px; 
   width: 15px;  
@@ -31,3 +26,8 @@ a:hover { color: #4B58A6; }
 .filter-red { background-color: #FB6353; }
 
 canvas {-ms-touch-action: double-tap-zoom;}
+
+/* customizations for iframe template */
+.iframe #map_canvas { height: 500px; }
+.iframe .well { margin-bottom: 5px; }
+.iframe .alert { margin-top: 5px; }
