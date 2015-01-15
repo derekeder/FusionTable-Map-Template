@@ -91,7 +91,7 @@ var MapsLib = {
 
     //-------end of custom filters--------
 
-    if (address != "") {
+    if (address != "" && address != "Enter an address or an intersection") {
       if (address.toLowerCase().indexOf(MapsLib.locationScope) == -1)
         address = address + " " + MapsLib.locationScope;
 
