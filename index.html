@@ -117,7 +117,7 @@
         }).resize();
         
         $(function() {
-          var mapslib = new MapsLib({
+          var MapsLibInstance = new MapsLib({
             /*fusionTableId:      "1m4Ez9xyTGfY2CU6O-UgEcPzlS0rnzLU93e4Faa0",
 
             //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
@@ -144,28 +144,28 @@
           var autocomplete = new google.maps.places.Autocomplete(document.getElementById('search_address'));
       
           $(':checkbox').click(function(){
-            mapslib.doSearch();
+            MapsLibInstance.doSearch();
           });
 
           $(':radio').click(function(){
-            mapslib.doSearch();
+            MapsLibInstance.doSearch();
           });
           
           $('#search_radius').change(function(){
-            mapslib.doSearch();
+            MapsLibInstance.doSearch();
           });
           
           $('#search').click(function(){
-            mapslib.doSearch();
+            MapsLibInstance.doSearch();
           });
           
           $('#find_me').click(function(){
-            mapslib.findMe(); 
+            MapsLibInstance.findMe(); 
             return false;
           });
           
           $('#reset').click(function(){
-            mapslib.reset(); 
+            MapsLibInstance.reset(); 
             return false;
           });
           
