@@ -82,12 +82,12 @@
 
 						map.setCenter(self.currentPinpoint);
 						// set zoom level based on search radius
-						if (self.searchRadius >= 1610000) map.setZoom(04); // 1,000 miles
-						else if (self.searchRadius >= 805000) map.setZoom(05); // 500 miles
-						else if (self.searchRadius >= 402500) map.setZoom(06); // 250 miles
-						else if (self.searchRadius >= 161000) map.setZoom(07); // 100 miles
-						else if (self.searchRadius >= 80500) map.setZoom(08); // 50 miles
-						else if (self.searchRadius >= 40250) map.setZoom(09); // 25 miles
+						if (self.searchRadius >= 1610000) map.setZoom(4); // 1,000 miles
+						else if (self.searchRadius >= 805000) map.setZoom(5); // 500 miles
+						else if (self.searchRadius >= 402500) map.setZoom(6); // 250 miles
+						else if (self.searchRadius >= 161000) map.setZoom(7); // 100 miles
+						else if (self.searchRadius >= 80500) map.setZoom(8); // 100 miles
+						else if (self.searchRadius >= 40250) map.setZoom(9); // 100 miles
 						else if (self.searchRadius >= 16100) map.setZoom(11); // 10 miles
 						else if (self.searchRadius >= 8050) map.setZoom(12); // 5 miles
 						else if (self.searchRadius >= 3220) map.setZoom(13); // 2 miles
