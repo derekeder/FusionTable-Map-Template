@@ -4,29 +4,37 @@
 
 		options = options || {};
 
-		this.recordName = options.recordName || "result"; //for showing number of results
+		this.recordName = options.recordName || "result"; //for showing a count of results
 		this.recordNamePlural = options.recordNamePlural || "results";
 		this.searchRadius = options.searchRadius || 805; //in meters ~ 1/2 mile
-		this.addrMarkerImage = options.addrMarkerImage || '/img/blue-pushpin.png';
-		this.currentPinpoint = options.currentPinpoint || null;
 
-		//the encrypted Table ID of your Fusion Table (found under File => About)
-		//NOTE: numeric IDs will be deprecated soon
-		this.fusionTableId = options.fusionTableId || "1m4Ez9xyTGfY2CU6O-UgEcPzlS0rnzLU93e4Faa0",
+		// the encrypted Table ID of your Fusion Table (found under File => About)
+		this.fusionTableId = options.fusionTableId || "",
 
-		//*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
-		//*Important* this key is for demonstration purposes. please register your own.
-		this.googleApiKey = options.googleApiKey || "AIzaSyA3FQFrNr5W2OEVmuENqhb2MBB2JabdaOY",
-		//name of the location column in your Fusion Table.
-		//NOTE: if your location column name has spaces in it, surround it with single quotes
-		//example: locationColumn:     "'my location'",
+		// Found at https://console.developers.google.com/
+		// Important! this key is for demonstration purposes. please register your own.
+		this.googleApiKey = options.googleApiKey || "",
+		
+    // name of the location column in your Fusion Table.
+		// NOTE: if your location column name has spaces in it, surround it with single quotes
+		// example: locationColumn:     "'my location'",
 		this.locationColumn = options.locationColumn || "geometry";
-		this.locationScope = options.locationScope || "chicago";
-		this.defaultZoom = options.defaultZoom || 11; //zoom level when map is loaded (bigger is more zoomed in)
-		this.lat = options.lat || 41.8781136;
-		this.lng = options.lng || -87.666778;
-		$("#result_count").html("");
-		this.map_centroid = new google.maps.LatLng(this.lat, this.lng); //center that your map defaults to
+		
+    // appends to all address searches if not present
+    this.locationScope = options.locationScope || "chicago";
+
+    // zoom level when map is loaded (bigger is more zoomed in)
+		this.defaultZoom = options.defaultZoom || 11; 
+
+    // center that your map defaults to
+		this.map_centroid = new google.maps.LatLng(options.map_center[0], options.map_center[1]);
+    
+    // marker image for your searched address
+    this.addrMarkerImage = options.addrMarkerImage || '/img/blue-pushpin.png';
+    
+    this.currentPinpoint = null;
+    $("#result_count").html("");
+		
 		this.myOptions = {
 			zoom: this.defaultZoom,
 			center: this.map_centroid,
