@@ -55,12 +55,12 @@ Follow the steps below and you'll be in business with your own map.
    4. Select __Browser key__
    5. Leave the ACCEPT REQUESTS FROM THESE HTTP REFERERS __blank__ and click __Create__
    6. Copy the API KEY, which should look something like `AIzaSyA3FQFrNr5W2OEVmuENqhb2MBB2JabdaOY`
-1. In js/maps_lib.js, set your 
+1. At the bottom of index.html, set your 
    1. __fusionTableId__ to the encrypted ID of your Fusion Table. __Note__: Google is phasing out numeric IDs soon
    1. __googleApiKey__ to the API key from your [Google API Console](https://code.google.com/apis/console/)
    1. __locationColumn__ to the name of your location column in your Fusion Table
-   1. __map_centroid__ to the lat/long you want your map to center on
-   1. __locationScope__ to the area you want to limit searches to (set to 'Chicago' by default)
+   1. __map_center__ to the lat/long you want your map to center on
+   1. __locationScope__ to the area you want to limit searches to (set to 'chicago' by default)
    1. __recordName__ and __recordNamePlural__ to the name of the items in your Fusion Table
 1. Add/modify additional filters to maps_lib.js. This will depend on the data you are trying to map. Take a look at the [wiki](https://github.com/derekeder/FusionTable-Map-Template/wiki) for [filter examples](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples) and [list views](https://github.com/derekeder/FusionTable-Map-Template/wiki/List-search-results) to get started. You can also take a look at these examples:
    * [Connect Chicago Locator](http://locations.weconnectchicago.org)
