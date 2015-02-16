@@ -30,7 +30,7 @@
 		this.map_centroid = new google.maps.LatLng(options.map_center[0], options.map_center[1]);
     
     // marker image for your searched address
-    this.addrMarkerImage = options.addrMarkerImage || '/img/blue-pushpin.png';
+    this.addrMarkerImage = options.addrMarkerImage || '/images/blue-pushpin.png';
     
     this.currentPinpoint = null;
     $("#result_count").html("");
