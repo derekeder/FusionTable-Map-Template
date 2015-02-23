@@ -22,7 +22,7 @@ You want to put your data on a searchable, filterable map. This is a free, open 
 * [Google Maps API V3](https://developers.google.com/maps/documentation/javascript)
 * [jQuery](http://jquery.org)
 * [jQuery Address](https://github.com/asual/jquery-address)
-* [Bootstrap 3](http://twitter.github.com/bootstrap)
+* [Bootstrap 3.2.0](http://getbootstrap.com/)
 
 ## Community
 There's a [public Google Group](https://groups.google.com/forum/#!forum/fusion-table-map-template) for anyone who wants to or has used the Searchable Map Template. Join the growing community of map makers to learn, share and benefit from each other!
@@ -120,6 +120,7 @@ Fusion Tables
 
 Community
 
+* [Fusion Table Map Template Google Group](https://groups.google.com/forum/#!forum/fusion-table-map-template)
 * [Fusion Tables Issue Tracker](http://code.google.com/p/fusion-tables/issues/list)
 * [Fusion Tables Google Group](http://groups.google.com/group/fusion-tables-users-group)
 
@@ -203,11 +204,11 @@ Notice a bug or want to add a feature? [Open an issue](https://github.com/dereke
 * [Derek Eder](http://derekeder.com) - primary contributor
 * [Chris Keller](http://www.chrislkeller.com/) - [recenter map on resize](https://github.com/derekeder/FusionTable-Map-Template/pull/11)
 * [nb-ofs](https://github.com/nb-ofs) - [Windows 8 touch screen ability](https://github.com/derekeder/FusionTable-Map-Template/pull/14), [Google Maps Visual Refresh](https://github.com/derekeder/FusionTable-Map-Template/pull/18), [Noscript message](https://github.com/derekeder/FusionTable-Map-Template/pull/19)
-* [Felipe Figueroa](https://github.com/amenadiel) - [Geocomplete update](https://github.com/derekeder/FusionTable-Map-Template/pull/36), [Updates to query function](https://github.com/derekeder/FusionTable-Map-Template/pull/38)
+* [Felipe Figueroa](https://github.com/amenadiel) - [Geocomplete update](https://github.com/derekeder/FusionTable-Map-Template/pull/36), [Updates to query function](https://github.com/derekeder/FusionTable-Map-Template/pull/38), [maps_lib.js javascript class](https://github.com/derekeder/FusionTable-Map-Template/pull/45)
 
 ## Copyright and attribution
 
-Copyright (c) 2014 Derek Eder. Released under the MIT License.
+Copyright (c) 2015 Derek Eder. Released under the MIT License.
 
 If you use this template, please provide the following attribution in the footer: 
 
