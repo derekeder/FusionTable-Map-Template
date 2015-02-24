@@ -30,7 +30,7 @@
         this.map_centroid = new google.maps.LatLng(options.map_center[0], options.map_center[1]);
         
         // marker image for your searched address
-        this.addrMarkerImage = options.addrMarkerImage || '/images/blue-pushpin.png';
+        this.addrMarkerImage = options.addrMarkerImage || 'images/blue-pushpin.png';
     
     	this.currentPinpoint = null;
     	$("#result_count").html("");
@@ -63,16 +63,16 @@
         $(":checkbox").prop("checked", "checked");
         $("#result_box").hide();
 
-        //-----custom initializers-------
-        //-----end of custom initializers-------
+        //-----custom initializers-----
+        //-----end of custom initializers-----
 
         //run the default search when page loads
         self.doSearch();
         if (options.callback) options.callback(self);
     };
 
-    //-----custom functions-------
-    //-----end of custom functions-------
+    //-----custom functions-----
+    //-----end of custom functions-----
 
     MapsLib.prototype.submitSearch = function (whereClause, map) {
         var self = this;
@@ -152,8 +152,8 @@
         self.searchRadius = $("#search_radius").val();
         self.whereClause = self.locationColumn + " not equal to ''";
         
-        //-----custom filters-------
-        //-------end of custom filters--------
+        //-----custom filters-----
+        //-----end of custom filters-----
 
         self.getgeoCondition(address, function (geoCondition) {
             self.whereClause += geoCondition;
