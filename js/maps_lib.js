@@ -246,12 +246,14 @@
         }).done(function (response) {
             //console.log(response);
             if (callback) callback(response);
+        }).fail(function(response) {
+            self.handleError(response);
         });
     };
 
     MapsLib.prototype.handleError = function (json) {
         if (json.error !== undefined) {
-            var error = json.error.errors;
+            var error = json.responseJSON.error.errors;
             console.log("Error in Fusion Table call!");
             for (var row in error) {
                 console.log(" Domain: " + error[row].domain);
@@ -273,7 +275,7 @@
 
     MapsLib.prototype.displaySearchCount = function (json) {
         var self = this;
-        self.handleError(json);
+        
         var numRows = 0;
         if (json["rows"] != null) {
             numRows = json["rows"][0];
