@@ -67,7 +67,7 @@ Follow the steps below and you'll be in business with your own map.
 
 ## MapsLib options
 
-You can configure your map by passing in a dictionary of options when you create a new `MapsLib` instance. Here's an example:
+You can configure your map by passing in a dictionary of options when you create a new `MapsLib` instance in `index.html` or `index_iframe.html`. Here's an example:
 
 ```javascript
 var myMap = new MapsLib({
