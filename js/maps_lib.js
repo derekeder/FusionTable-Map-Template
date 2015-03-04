@@ -163,10 +163,9 @@
     };
 
     MapsLib.prototype.reset = function () {
-        var self = this;
-        self.clearSearch();
-        self.map.setOptions(this.myOptions);
-        self.submitSearch(this.locationColumn + " not equal to ''", self.map);
+        $.address.parameter('address','');
+        $.address.parameter('radius','');
+        window.location.reload();
     };
 
 
@@ -316,9 +315,12 @@
 
     MapsLib.prototype.clearSearch = function () {
         var self = this;
-        if (self.searchrecords && self.searchrecords.getMap) self.searchrecords.setMap(null);
-        if (self.addrMarker && self.addrMarker.getMap) self.addrMarker.setMap(null);
-        if (self.searchRadiusCircle && self.searchRadiusCircle.getMap) self.searchRadiusCircle.setMap(null);
+        if (self.searchrecords && self.searchrecords.getMap) 
+            self.searchrecords.setMap(null);
+        if (self.addrMarker && self.addrMarker.getMap) 
+            self.addrMarker.setMap(null);
+        if (self.searchRadiusCircle && self.searchRadiusCircle.getMap) 
+            self.searchRadiusCircle.setMap(null);
     };
 
     MapsLib.prototype.findMe = function () {
