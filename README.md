@@ -31,10 +31,6 @@ There's a [public Google Group](https://groups.google.com/forum/#!forum/fusion-t
 
 ## Releases
 
-We've upgraded to [Bootstrap 3](http://getbootstrap.com/)! The HTML markup is slightly different in this version, so if you still want to use [Bootstrap 2](http://getbootstrap.com/2.3.2/), you can grab that version too. 
-
-If you're upgrading, check out the [Bootstrap migration guide](http://getbootstrap.com/getting-started/#migration).
-
 * [v 1.3](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.3) - Bootstrap 3.2, more robust query function, dynamic zoom
 * [v 1.2](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.2) - Bootstrap 3, jQuery 1.10.2, jQuery Address 1.6
 * [v 1.1](https://github.com/derekeder/FusionTable-Map-Template/releases/tag/v1.1) - Bootstrap 2.0.3, jQuery 1.7.1, jQuery Address 1.4 
@@ -68,6 +64,34 @@ Follow the steps below and you'll be in business with your own map.
    * [Chicago Bike Crash Reports](http://derekeder.com/maps/chicago-bike-crash-reports/index.html)
    * [Chicago TIF Projects](http://derekeder.com/maps/chicago-tif/index.html)
 1. Upload this map and all the supporting files (css, fonts, images and js folders) to your site 
+
+## MapsLib options
+
+You can configure your map by passing in a dictionary of options when you create a new `MapsLib` instance. Here's an example:
+
+```javascript
+var myMap = new MapsLib({
+  fusionTableId:      "1m4Ez9xyTGfY2CU6O-UgEcPzlS0rnzLU93e4Faa0",
+  googleApiKey:       "AIzaSyA3FQFrNr5W2OEVmuENqhb2MBB2JabdaOY",
+  locationColumn:     "geometry",
+  map_center:         [41.8781136, -87.66677856445312],
+  locationScope:      "chicago"
+});
+```
+
+| Option           | Default value           | Notes                                                                                                                                                         |
+|------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| fusionTableId    |                         | **Required**. Table ID of your Fusion Table (found under File => About).                                                                                      |
+| googleApiKey     |                         | **Required**. Found at https://console.developers.google.com/ The key provided in this template is for demonstration purposes only. Please register your own. |
+| map_centroid     |                         | **Required**. Center [latitude, longitude] that your map defaults to.                                                                                         |
+| recordName       | record                  | Used for showing the count of results.                                                                                                                        |
+| recordNamePlural | records                 |                                                                                                                                                               |
+| searchRadius     | 805                     | Default search radius. Defined in meters. Default is 1/2 mile.                                                                                                |
+| locationColumn   | geometry                | Name of the location column in your Fusion Table. If your location column name has spaces in it, surround it with single quotes like this "'my location'".    |
+| locationScope    | chicago                 | Appended to all address searches to keep results within a geographic area.                                                                                    |
+| defaultZoom      | 11                      | Default zoom level when map is loaded (bigger is more zoomed in).                                                                                             |
+| addrMarkerImage  | images/blue-pushpin.png | Image used to identify your address search on the map. Setting it to blank will hide the marker.                                                              |
+
 
 ## Custom Filters and Views
 
