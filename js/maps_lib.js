@@ -232,7 +232,7 @@
         if (query_opts.where && query_opts.where != "") {
             queryStr.push(" WHERE " + query_opts.where);
         }
-        if (query_opts.groupBy && query_opts.roupBy != "") {
+        if (query_opts.groupBy && query_opts.groupBy != "") {
             queryStr.push(" GROUP BY " + query_opts.groupBy);
         }
         if (query_opts.orderBy && query_opts.orderBy != "") {
