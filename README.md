@@ -52,7 +52,7 @@ Follow the steps below and you'll be in business with your own map.
    4. Select __Browser key__
    5. Leave the ACCEPT REQUESTS FROM THESE HTTP REFERERS __blank__ and click __Create__
    6. Copy the API KEY, which should look something like `AIzaSyA3FQFrNr5W2OEVmuENqhb2MBB2JabdaOY`
-1. At the bottom of index.html, set your map options ([see the full list of options](#mapslib-options))
+1. Download or clone this project and fire up your text editor of choice. Open up `index.html` and set your map options at the bottom of the file ([see the full list of options](#mapslib-options))
    1. **fusionTableId** - the ID of your Fusion Table (found in Fusion Tables under File => About this table)
    1. **googleApiKey** - the API key from your [Google API Console](https://code.google.com/apis/console/)
    1. **locationColumn** - the name of your location column in your Fusion Table
