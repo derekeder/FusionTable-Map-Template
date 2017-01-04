@@ -44,7 +44,7 @@ Follow the steps below and you'll be in business with your own map.
 
 1. Create a Fusion Table ([here's a great tutorial](https://support.google.com/fusiontables/answer/2527132?hl=en&topic=2573107&ctx=topic))
 1. Make sure at least one column is set to a type of Location and that Fusion Tables has geocoded it
-1. Set the Fusion Table to be publicly visible (via the Share button in the upper right) and make sure 'Allow Download' is enabled.
+1. Set the Fusion Table to be publicly visible (via the Share button in the upper right) and make sure that 'Allow Downloads' is checked for your Fusion Table (File => About this table => Edit table information)
 1. Create your own Google Maps JavaScript API key to replace the default in the Map Options section of the index.html file above. By inserting your own key, Google will allow 25,000 requests per day to your Searchable Map.
   1. Go to the [Google Developers Maps JavaScript API](https://console.developers.google.com/projectselector/apis/credentials) page and click the Get a Key button
   1. On the Google Developers Console page, select Create a New Project and press Continue
@@ -157,7 +157,8 @@ Reference Guides
 
 If your map isn't displaying any data, try the following:
 
-1. Use the [Chrome developer console](https://developers.google.com/chrome-developer-tools/docs/console) or install [Firebug](http://getfirebug.com/) for FireFox. This will allow you to debug your javascript.
+1. Use the [Chrome developer console](https://developers.google.com/chrome-developer-tools/docs/console) or install [Firebug](http://getfirebug.com/) for FireFox. This will  do
+you to debug your javascript.
 1. Load your map in the browser and open the javascript console 
    * Chrome developer console on a Mac: Option+Command+J
    * Chrome developer console on a PC: Control+Shift+J
