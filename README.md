@@ -123,7 +123,7 @@ To embed, you can use the following code on your page:
 </iframe>
 ```
 
-You must explicitly set the size of the iframe, so midify the `height` and `width` attributes as necessary. You can also control the height of the map in `css/custom.css`:
+You must explicitly set the size of the iframe, so modify the `height` and `width` attributes as necessary. You can also control the height of the map in `css/custom.css`:
 
 ```css
 .iframe #map_canvas { height: 500px; }
