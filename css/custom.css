@@ -25,6 +25,8 @@ a:hover { color: #4B58A6; }
 .filter-purple { background-color: #7C54FB; }
 .filter-red { background-color: #FB6353; }
 
+ul { -webkit-padding-start: 19px; }
+
 canvas {-ms-touch-action: double-tap-zoom;}
 
 /* customizations for iframe template */
