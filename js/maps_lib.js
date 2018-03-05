@@ -29,6 +29,9 @@
         // center that your map defaults to
         this.map_centroid = new google.maps.LatLng(options.map_center[0], options.map_center[1]);
         
+        // the current center of the map
+        this.current_center = this.map_centroid
+
         // marker image for your searched address
         if (typeof options.addrMarkerImage !== 'undefined') {
             if (options.addrMarkerImage != "")
@@ -55,7 +58,7 @@
             self.calculateCenter();
         });
         google.maps.event.addDomListener(window, 'resize', function () {
-            self.map.setCenter(self.map_centroid);
+            self.map.setCenter(this.current_center);
         });
         self.searchrecords = null;
 
@@ -314,7 +317,7 @@
     // maintains map centerpoint for responsive design
     MapsLib.prototype.calculateCenter = function () {
         var self = this;
-        center = self.map.getCenter();
+        this.current_center = self.map.getCenter();
     };
 
     //converts a slug or query string in to readable text
