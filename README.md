@@ -57,7 +57,7 @@ Follow the steps below and you'll be in business with your own map.
    1. **locationColumn** - the name of your location column in your Fusion Table
    1. **map_center** - the lat/long you want your map to center on ([find yours here](http://www.itouchmap.com/latlong.html))
    1. **locationScope** - the area you want to limit searches to (set to 'chicago' by default)
-1. **New** Get a Google Maps API key. [Follow these instructions](https://developers.google.com/maps/documentation/javascript/get-api-key) and replace the key on this line of `index.html`: `<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=[YOUR KEY HERE]"></script>`
+1. **New** Get a Google Maps API key. [Follow these instructions](https://developers.google.com/maps/documentation/javascript/get-api-key) and replace the key on this line of `index.html`: `<script type="text/javascript" src="https://maps.google.com/maps/api/js?libraries=places&key=[YOUR KEY HERE]"></script>`
 1. Add/modify additional filters to maps_lib.js. This will depend on the data you are trying to map. Take a look at the [wiki](https://github.com/derekeder/FusionTable-Map-Template/wiki) for [filter examples](https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples) and [list views](https://github.com/derekeder/FusionTable-Map-Template/wiki/List-search-results) to get started.
 1. Upload this map and all the supporting files (css, fonts, images and js folders) to your site 
 
