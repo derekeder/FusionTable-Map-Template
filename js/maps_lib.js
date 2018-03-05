@@ -44,11 +44,23 @@
 
     	this.currentPinpoint = null;
     	$("#result_count").html("");
+
+        // disable Google's points of interest markers in the basemap
+        var basemapStyles =[
+            {
+                featureType: "poi",
+                elementType: "labels",
+                stylers: [
+                      { visibility: "off" }
+                ]
+            }
+        ];
         
         this.myOptions = {
             zoom: this.defaultZoom,
             center: this.map_centroid,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: basemapStyles 
         };
         this.geocoder = new google.maps.Geocoder();
         this.map = new google.maps.Map($("#map_canvas")[0], this.myOptions);
