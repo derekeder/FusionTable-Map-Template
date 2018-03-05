@@ -138,8 +138,8 @@ If you want to create a map with two layers - one with points and another with p
 Fusion Tables 
 
 * [Fusion Tables Home](http://www.google.com/fusiontables/Home)
-* [v1 API Documentation](https://developers.google.com/fusiontables/docs/v1/using)
-* [v1 API Migration Guide](https://developers.google.com/fusiontables/docs/v1/migration_guide)
+* [v2 API Documentation](https://developers.google.com/fusiontables/docs/v2/using)
+* [v2 API Migration Guide](https://developers.google.com/fusiontables/docs/v2/migration_guide)
 
 Community
 
@@ -149,9 +149,9 @@ Community
 
 Reference Guides
 
-* [Google Maps API](http://code.google.com/apis/maps/documentation/javascript/overlays.html#FusionTables)
-* [Fusion Tables API Developer Guide](http://code.google.com/apis/fusiontables/docs/developers_guide.html)
-* [Fusion Tables API Reference Guide](http://code.google.com/apis/fusiontables/docs/developers_reference.html)
+* [Google Maps API](https://developers.google.com/maps/documentation/javascript/fusiontableslayer)
+* [Fusion Tables API Developer Guide](https://developers.google.com/fusiontables/docs/v2/getting_started)
+* [Fusion Tables API Reference Guide](https://developers.google.com/fusiontables/docs/v2/reference/)
 
 ## Common issues/troubleshooting
 
@@ -191,7 +191,7 @@ When you create custom styles for the first time, the styleId will be 2. For cus
 
 For reference, styleId 1 is the default look - usually small red dots or red polygons. templateId 1 is the default info window that just shows the first few columns in your table.
 
-For more information, see [Working with styles](https://developers.google.com/fusiontables/docs/v1/using#WorkingStyles) and [Working with templates](https://developers.google.com/fusiontables/docs/v1/using#WorkingInfoWindows) in the Fusion Tables documentation.
+For more information, see [Working with styles](https://developers.google.com/fusiontables/docs/v2/using#WorkingStyles) and [Working with templates](https://developers.google.com/fusiontables/docs/v2/using#WorkingInfoWindows) in the Fusion Tables documentation.
 
 #### I want to display custom icons on my map
 
