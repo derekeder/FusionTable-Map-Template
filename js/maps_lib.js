@@ -338,7 +338,7 @@
         
         //-----custom filters-----
         var type_column = "'type id'";
-        var searchType = type_column + " IN (-1,";
+        var searchType = type_column + " IN (-1,4,";
         if ( $("#cbType1").is(':checked')) searchType += "1,";
         if ( $("#cbType2").is(':checked')) searchType += "2,";
         if ( $("#cbType3").is(':checked')) searchType += "3,";
