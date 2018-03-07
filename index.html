@@ -56,26 +56,30 @@
               </label>
             </p>
 
-            <br />
-            <h4>Custom filters and views</h4>
-            <p>Take a look at the <a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples'>wiki</a> to see how to add your own custom filters and views like:</p>
-            <div class='row'>
-              <div class='col-md-6'>
-                <ul>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-checkboxes'>Checkboxes</a></li>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-radiobuttons'>Radio buttons</a></li>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-drop-down-lists'>Drop down lists</a></li>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-textsearches'>Text searches</a></li>
-                </ul>
-              </div>
-              <div class='col-md-6'>
-                <ul>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-sliders'>Sliders</a></li>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples#wiki-date-sliders'>Date sliders</a></li>
-                  <li><a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/List-search-results'>Results lists</a></li>
-                </ul>
-              </div>
-            </div>
+            <ul class='inputs-list unstyled'>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='cbType1' />
+                  <span class='filter-box filter-yellow'></span>
+                  Bars
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='cbType2' />
+                  <span class='filter-box filter-red'></span>
+                  Restaurants
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='cbType3' />
+                  <span class='filter-box filter-purple'></span>
+                  Other
+                </label>
+              </li>
+            </ul>         
+
             <br />
             <a class='btn btn-primary' id='search' href='#'>
               <i class='glyphicon glyphicon-search'></i>
@@ -119,9 +123,9 @@
         
         $(function() {
           var myMap = new MapsLib({
-            fusionTableId:      "1m4Ez9xyTGfY2CU6O-UgEcPzlS0rnzLU93e4Faa0",
-            googleApiKey:       "AIzaSyA3FQFrNr5W2OEVmuENqhb2MBB2JabdaOY",
-            locationColumn:     "geometry",
+            fusionTableId:      "16iwmocs0QJMuJ9RR3Z-2hFeNFJSnHwLILHwDEDY5",
+            googleApiKey:       "AIzaSyBe8LK4tM8xsmO7B3x3iYfwtHVGC-YAM7o",
+            locationColumn:     "address",
             map_center:         [41.8781136, -87.66677856445312],
             locationScope:      "chicago"
           });
