@@ -273,6 +273,7 @@
         self.fusionTable = self.searchrecords;
         self.searchrecords.setMap(map);
         self.getCount(whereClause);
+        self.getList(whereClause);
     };
 
 
@@ -351,6 +352,63 @@
         });
 
     };
+
+    MapsLib.prototype.getList = function(whereClause) {
+        var self = this;
+        var selectColumns = "name,address,type,'type id','neighborhood and travel','recommender','poster''s notes'";
+
+        self.query({
+            select: selectColumns,
+            where: whereClause,
+            orderBy: 'name'
+        }, function (json) {
+            self.displayList(json);
+        });
+    }
+
+    MapsLib.prototype.displayList = function(json) {
+        var self = this;
+        
+        var data = json['rows'];
+        var template = '';
+
+        var results = $('#results_list');
+        results.hide().empty(); //hide the existing list and empty it out first
+
+        if (data == null) {
+            //clear results list
+            results.append("<tr><td colspan='6'>No results found</td></tr>");
+        }
+        else {
+            for (var row in data) {
+                var type_color = 'yellow';
+                if (data[row][3] == '3') type_color = 'purple';
+                if (data[row][3] == '2') type_color = 'red';
+                template = "\
+                  <tr>\
+                      <td><span class='filter-box filter-" + type_color + "'></span></td>\
+                      <td><strong>" + data[row][0] + "</strong><br /><small>" + data[row][2] + "</small></td>\
+                      <td>" + data[row][1] + "<br /><a href='https://maps.google.com?daddr=" + data[row][1] + "'>Directions &raquo;</a></td>\
+                      <td>" + data[row][4] + "</td>\
+                      <td>" + data[row][6] + "</td>\
+                      <td>";
+
+                // if (data[row][4] != "") 
+                //     template += "<b>Phone:</b> " + data[row][4] + "<br>";
+                // if (data[row][5] != "") 
+                //     template += "<b>Phone secondary:</b> " + data[row][5] + "<br>";
+                // if (data[row][6] != "") 
+                //     template += "<b>Fax:</b> " + data[row][6] + "<br>";
+                // if (data[row][7] != "") 
+                //     template += "<b>Web:</b> <a href='http://" + data[row][7] + "' target='_blank'>" + data[row][7] + "</a><br>";
+                // if (data[row][8] != "") 
+                //     template += "<b>Email:</b> <a href='mailto:" + data[row][8] + "' target='_blank'>" + data[row][8] + "</a><br>";
+ 
+                results.append(template);
+            }
+        }
+        results.fadeIn();
+    }
 
     MapsLib.prototype.reset = function () {
         $.address.parameter('address','');
