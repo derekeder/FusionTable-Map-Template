@@ -1,7 +1,7 @@
 # Fusion Table Searchable Map Template
 You want to put your data on a searchable, filterable map. This is a free, open source template to help you do it.
 
-**Note** [Beginning on June 11, 2018, Google will require you to enable billing with a credit card and have a valid API key](https://cloud.google.com/maps-platform/user-guide/) for all Google API projects, including this one. [Read the guide on how these changes impact this template and instructions on getting your own API key](https://groups.google.com/forum/#!topic/fusion-table-map-template/JJMsd7wVQuM).
+**Note** [Google now requires you to enable billing with a credit card and have a valid API key](https://cloud.google.com/maps-platform/user-guide/) for all Google API projects, including this one. [Read the guide on how these changes impact this template and instructions on getting your own API key](https://groups.google.com/forum/#!topic/fusion-table-map-template/JJMsd7wVQuM).
 
 [![Searchable Map Template screenshot](https://raw.github.com/derekeder/FusionTable-Map-Template/master/images/searchable-map-template-v1.2.jpg)](http://derekeder.github.io/FusionTable-Map-Template/)
 
@@ -51,7 +51,7 @@ Follow the steps below and you'll be in business with your own map.
 1. Create your own Google API key to replace the default in the Map Options section of the index.html file above. By inserting your own key, you will be able to use your map on domains other than `*.github.io`.
    1. [Follow these instructions to get a Google API key](https://developers.google.com/maps/documentation/directions/get-api-key).
    1. You will need to make sure that the **Places API**, **Maps JavaScript API**, **Geocoding API** and **Fusion Tables API** are all enabled for your project.
-   1. **Note** [Beginning on June 11, 2018, you’ll need to enable billing with a credit card and have a valid API key](https://cloud.google.com/maps-platform/user-guide/) for all Google API projects, including this one.
+   1. **Note** [You’ll need to enable billing with a credit card and have a valid API key](https://cloud.google.com/maps-platform/user-guide/) for all Google API projects, including this one.
 1. Download or clone this project and fire up your text editor of choice. Open up `index.html` and set your map options at the bottom of the file ([see the full list of options](#mapslib-options))
    1. **fusionTableId** - the ID of your Fusion Table (found in Fusion Tables under File => About this table)
    1. **googleApiKey** - your Google Cloud Platform API key
