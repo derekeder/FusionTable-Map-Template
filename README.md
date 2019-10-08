@@ -1,5 +1,5 @@
 # Fusion Table Searchable Map Template
-**Alert** [Google is shutting down Fusion Tables on Dec 6th, 2019](https://support.google.com/fusiontables/answer/9185417). This template will no longer function on that day.
+**Alert** [Google is shutting down Fusion Tables on Dec 6th, 2019](https://support.google.com/fusiontables/answer/9185417). This template will no longer function after that day.
 
 You want to put your data on a searchable, filterable map. This is a free, open source template to help you do it.
 
