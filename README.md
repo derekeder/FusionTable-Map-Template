@@ -1,7 +1,10 @@
 # Fusion Table Searchable Map Template
-**Alert** [Google is shutting down Fusion Tables on Dec 3rd, 2019](https://support.google.com/fusiontables/answer/9185417). This template will no longer function after that day.
+**No longer working** [Google is shutting down Fusion Tables on Dec 3rd, 2019](https://support.google.com/fusiontables/answer/9185417). This template will no longer function after that day.
 
-I have created a successor to this template using CARTO, which you can find here: https://github.com/datamade/Searchable-Map-Template-Carto
+I have since created two new templates based on this one:
+
+* [Searchable Map Template - Carto](https://github.com/datamade/searchable-map-template-carto) - For large datasets. Requires a [CARTO](https://carto.com/) account (which you'll likely have to pay for).
+* [Searchable Map Template - Turf](https://github.com/datamade/searchable-map-template-turf) - For smaller datasets. Does everything in the browser and is **free**.
 
 You want to put your data on a searchable, filterable map. This is a free, open source template to help you do it.
 
